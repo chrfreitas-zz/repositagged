@@ -10,7 +10,7 @@ exports[`Main view should match with snapshot 1`] = `
   <div
     className="main__content"
   >
-    [Function]
+    Seja bem vindo!
   </div>
 </div>
 `;

@@ -11,7 +11,7 @@ const Main = ({ children }) => (
 );
 
 Main.propTypes = {
-  children: PropTypes.element,
+  children: PropTypes.string,
 };
 
 Main.defaultProps = {
