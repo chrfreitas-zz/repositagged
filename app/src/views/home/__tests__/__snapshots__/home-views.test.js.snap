@@ -2,15 +2,22 @@
 
 exports[`Home view should match with snapshot 1`] = `
 <div
-  className=""
+  className="home"
 >
-  https://github.com/
-  <input
-    placeholder="username"
-    type="text"
-  />
-  <Button>
-    get repositories
-  </Button>
+  <div
+    className="home__row"
+  >
+    https://github.com/
+    <Input
+      placeholder="username"
+    />
+  </div>
+  <div
+    className="home__row"
+  >
+    <Button>
+      get repositories
+    </Button>
+  </div>
 </div>
 `;

@@ -1,0 +1,14 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__row {
+    text-align: center;
+    margin-top: 15px;
+  }
+
+  &__row:first-child {
+    margin: 0;
+  }
+}
