@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main view should match with snapshot 1`] = `
+<div
+  className="main"
+>
+  <Header
+    title="githubstars"
+  />
+  <div
+    className="main__content"
+  >
+    [Function]
+  </div>
+</div>
+`;
