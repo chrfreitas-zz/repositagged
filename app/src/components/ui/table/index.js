@@ -18,13 +18,11 @@ const Table = ({ header, body }) => (
           <td>{item.description}</td>
           <td>{item.language}</td>
           <td>{item.tags}</td>
+          <td>
+            <a href="/test">edit</a>
+          </td>
         </tr>
       ))}
-      <tr>
-        <td>
-          <a href="/test">edit</a>
-        </td>
-      </tr>
     </tbody>
   </table>
 );

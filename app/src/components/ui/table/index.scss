@@ -1,7 +1,25 @@
 .table {
   width: 100%;
+  border: 1px solid #dee2e6;
+  border-collapse: collapse;
 
-  thead th {
-    text-align: left;
+  th,
+  td {
+    border: 1px solid #dee2e6;
+    padding: 5px 15px;
+  }
+
+  thead {
+    th {
+      text-align: left;
+      background-color: #c0c0c0;
+      border-bottom: 1px solid #dee2e6;
+    }
+  }
+
+  tbody {
+    tr:nth-of-type(2n + 1) {
+      background-color: #eee;
+    }
   }
 }
