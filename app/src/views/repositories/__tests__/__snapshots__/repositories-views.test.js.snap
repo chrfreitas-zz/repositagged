@@ -9,7 +9,8 @@ exports[`Repositories view should match with snapshot 1`] = `
       className="repositories__row"
     >
       <Input
-        placehold="search by tag"
+        className="input input--medium"
+        placeholder="search by tag"
       />
     </div>
     <div

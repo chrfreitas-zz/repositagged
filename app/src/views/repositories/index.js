@@ -39,7 +39,7 @@ const Repositories = () => (
     )}
     <div className="repositories">
       <div className="repositories__row">
-        <Input placehold="search by tag" />
+        <Input placeholder="search by tag" className="input input--medium" />
       </div>
       <div className="repositories__row">
         <Table header={header} body={repositories} />

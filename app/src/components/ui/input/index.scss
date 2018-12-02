@@ -4,4 +4,9 @@
   &:focus {
     outline: 0;
   }
+
+  &--medium {
+    width: 300px;
+    font-size: 16px;
+  }
 }
