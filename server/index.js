@@ -1,6 +1,8 @@
 'use strict'
+
 const hapi = require('hapi')
-const hapiMongoDB = require('hapi-mongodb')
+
+const registerMongodb = require('./registers/mongodb')
 const routes = require('./routes');
 
 const start = async () => {
@@ -9,17 +11,7 @@ const start = async () => {
     host: 'localhost'
   })
   
-  await server.register({
-    plugin: hapiMongoDB,
-    options: {
-      url: 'mongodb://127.0.0.1:27017/repositagged',
-      decorate: true,
-      settings: {
-        poolSize: 10,
-        useNewUrlParser: true
-      },
-    }
-  })
+  await server.register(registerMongodb)
 
   routes.map(route => server.route(route))
     
