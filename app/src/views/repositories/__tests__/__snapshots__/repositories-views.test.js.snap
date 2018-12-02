@@ -5,42 +5,50 @@ exports[`Repositories view should match with snapshot 1`] = `
   <div
     className="repositories"
   >
-    <Input
-      placehold="search by tag"
-    />
-    <Table
-      body={
-        Array [
-          Object {
-            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s",
-            "language": "go",
-            "name": "kubernetes",
-            "tag": "",
-          },
-          Object {
-            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s",
-            "language": "python",
-            "name": "django",
-            "tag": "",
-          },
-          Object {
-            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s",
-            "language": "javascript",
-            "name": "jest",
-            "tag": "",
-          },
-        ]
-      }
-      header={
-        Array [
-          "Repository",
-          "Description",
-          "Language",
-          "Tags",
-          "",
-        ]
-      }
-    />
+    <div
+      className="repositories__row"
+    >
+      <Input
+        placehold="search by tag"
+      />
+    </div>
+    <div
+      className="repositories__row"
+    >
+      <Table
+        body={
+          Array [
+            Object {
+              "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s",
+              "language": "go",
+              "name": "kubernetes",
+              "tag": "",
+            },
+            Object {
+              "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s",
+              "language": "python",
+              "name": "django",
+              "tag": "",
+            },
+            Object {
+              "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s",
+              "language": "javascript",
+              "name": "jest",
+              "tag": "",
+            },
+          ]
+        }
+        header={
+          Array [
+            "Repository",
+            "Description",
+            "Language",
+            "Tags",
+            "",
+          ]
+        }
+      />
+    </div>
   </div>
 </React.Fragment>
 `;

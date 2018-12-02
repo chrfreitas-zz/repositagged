@@ -38,8 +38,12 @@ const Repositories = () => (
       <Progressbar text="Getting the repositories list from Github" />
     )}
     <div className="repositories">
-      <Input placehold="search by tag" />
-      <Table header={header} body={repositories} />
+      <div className="repositories__row">
+        <Input placehold="search by tag" />
+      </div>
+      <div className="repositories__row">
+        <Table header={header} body={repositories} />
+      </div>
     </div>
   </Fragment>
 );
