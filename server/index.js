@@ -1,7 +1,7 @@
 'use strict'
 const Hapi = require('hapi')
 const HapiMongoDB = require('hapi-mongodb')
-
+const routes = require('./routes');
 
 const start = async () => {
   const server = new Hapi.server({
@@ -20,19 +20,11 @@ const start = async () => {
       },
     }
   })
-  
-  server.route({
-    method: 'GET',
-    path: '/repositories',
-    handler: (request) => {
-      const db = request.mongo.db
-      return db.collection('repositories').find().toArray()
-    }
-  })
+
+  routes.map(route => server.route(route))
     
   await server.start()
   console.log(`Server running at PORT ${server.info.port} ...`)
 }
-
 
 start();
