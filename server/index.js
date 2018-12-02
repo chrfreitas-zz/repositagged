@@ -2,7 +2,8 @@
 
 const hapi = require('hapi')
 
-const registerMongodb = require('./registers/mongodb')
+const mongodb = require('./registers/mongodb')
+const log = require('./registers/log')
 const routes = require('./routes');
 
 const start = async () => {
@@ -11,7 +12,8 @@ const start = async () => {
     host: 'localhost'
   })
   
-  await server.register(registerMongodb)
+  await server.register(mongodb)
+  await server.register(log)
 
   routes.map(route => server.route(route))
     
