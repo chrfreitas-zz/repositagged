@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Home view should match with snapshot 1`] = `
-<div>
+<div
+  className=""
+>
   https://github.com/
   <input
     placeholder="username"
     type="text"
   />
-  <button
-    type="button"
-  >
+  <Button>
     get repositories
-  </button>
+  </Button>
 </div>
 `;

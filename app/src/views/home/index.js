@@ -1,10 +1,11 @@
 import React from 'react';
+import Button from '../../components/ui/button';
 
 const Home = () => (
-  <div>
+  <div className="">
     https://github.com/
     <input type="text" placeholder="username" />
-    <button type="button">get repositories</button>
+    <Button>get repositories</Button>
   </div>
 );
 

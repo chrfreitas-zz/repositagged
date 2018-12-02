@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button view should match with snapshot 1`] = `
+<button
+  className="button"
+  type="button"
+>
+  Save
+</button>
+`;
