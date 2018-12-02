@@ -1,16 +1,16 @@
 'use strict'
-const Hapi = require('hapi')
-const HapiMongoDB = require('hapi-mongodb')
+const hapi = require('hapi')
+const hapiMongoDB = require('hapi-mongodb')
 const routes = require('./routes');
 
 const start = async () => {
-  const server = new Hapi.server({
+  const server = new hapi.server({
     port: 3000,
     host: 'localhost'
   })
   
   await server.register({
-    plugin: HapiMongoDB,
+    plugin: hapiMongoDB,
     options: {
       url: 'mongodb://127.0.0.1:27017/repositagged',
       decorate: true,

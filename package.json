@@ -4,7 +4,6 @@
   "description": "",
   "main": "server/index.js",
   "dependencies": {
-    "axios": "^0.18.0",
     "hapi": "^17.8.1",
     "hapi-mongodb": "^8.0.0",
     "node-fetch": "^2.3.0",
@@ -12,7 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start:server": "nodemon -w ./server/index.js"
+    "start:server": "nodemon -w ./server"
   },
   "repository": {
     "type": "git",
