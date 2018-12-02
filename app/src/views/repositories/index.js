@@ -10,6 +10,7 @@ const header = ['Repository', 'Description', 'Language', 'Tags', ''];
 
 const repositories = [
   {
+    id: 1,
     name: 'kubernetes',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s',
@@ -17,6 +18,7 @@ const repositories = [
     tag: '',
   },
   {
+    id: 2,
     name: 'django',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s',
@@ -24,6 +26,7 @@ const repositories = [
     tag: '',
   },
   {
+    id: 3,
     name: 'jest',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s',

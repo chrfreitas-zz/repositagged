@@ -7,13 +7,13 @@ const Table = ({ header, body }) => (
     <thead>
       <tr>
         {header.map(item => (
-          <th>{item}</th>
+          <th key={item}>{item}</th>
         ))}
       </tr>
     </thead>
     <tbody>
       {body.map(item => (
-        <tr>
+        <tr key={item.id}>
           <td>{item.name}</td>
           <td>{item.description}</td>
           <td>{item.language}</td>

@@ -8,6 +8,7 @@ describe('Table view', () => {
 
     const repositories = [
       {
+        id: 1,
         name: 'kubernetes',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s',
@@ -15,6 +16,7 @@ describe('Table view', () => {
         tag: '',
       },
       {
+        id: 2,
         name: 'django',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s',
@@ -22,6 +24,7 @@ describe('Table view', () => {
         tag: '',
       },
       {
+        id: 3,
         name: 'jest',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s',
