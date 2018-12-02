@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Repositories view should match with snapshot 1`] = `
+<React.Fragment>
+  <div
+    className="repositories"
+  >
+    <Input
+      placehold="search by tag"
+    />
+    <Table
+      body={
+        Array [
+          Object {
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s",
+            "language": "go",
+            "name": "kubernetes",
+            "tag": "",
+          },
+          Object {
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s",
+            "language": "python",
+            "name": "django",
+            "tag": "",
+          },
+          Object {
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s",
+            "language": "javascript",
+            "name": "jest",
+            "tag": "",
+          },
+        ]
+      }
+      header={
+        Array [
+          "Repository",
+          "Description",
+          "Language",
+          "Tags",
+          "",
+        ]
+      }
+    />
+  </div>
+</React.Fragment>
+`;

@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table view should match with snapshot 1`] = `
+<table
+  className="table"
+>
+  <thead>
+    <tr>
+      <th>
+        Repository
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+        Language
+      </th>
+      <th>
+        Tags
+      </th>
+      <th>
+        
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        kubernetes
+      </td>
+      <td>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s
+      </td>
+      <td>
+        go
+      </td>
+      <td />
+      <td>
+        <a
+          href="/test"
+        >
+          edit
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        django
+      </td>
+      <td>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s
+      </td>
+      <td>
+        python
+      </td>
+      <td />
+      <td>
+        <a
+          href="/test"
+        >
+          edit
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        jest
+      </td>
+      <td>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s
+      </td>
+      <td>
+        javascript
+      </td>
+      <td />
+      <td>
+        <a
+          href="/test"
+        >
+          edit
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
