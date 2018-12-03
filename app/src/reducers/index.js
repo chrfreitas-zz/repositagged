@@ -1,15 +1,15 @@
 import actions from '../actions';
 
 const initialState = {
-  list: [],
+  repositories: [],
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actions.FETCH_REPOSITORIES_LIST:
+    case actions.FETCH_REPOSITORIES_LIST_SUCCESS:
       return {
         ...state,
-        list: action.data,
+        repositories: action.data,
       };
 
     default:

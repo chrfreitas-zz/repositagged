@@ -1,8 +1,16 @@
 import { connect } from 'react-redux';
+import actions from '../../actions';
 import Repositories from '../../views/repositories';
 
-const mapStateToProps = store => ({
-  newValue: store.list,
+const mapDispatchToProps = dispatch => ({
+  getRepositories: () => dispatch(actions.fetchRepositoriesList('chrfreitas')),
 });
 
-export default connect(mapStateToProps)(Repositories);
+const mapStateToProps = store => ({
+  repositories: store.repositories,
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Repositories);

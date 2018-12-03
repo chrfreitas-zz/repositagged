@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
+import PropTypes from 'prop-types';
 import Progressbar from '../../components/progressbar';
 import Input from '../../components/ui/input';
 import Table from '../../components/ui/table';
@@ -35,20 +36,33 @@ const repositories = [
   },
 ];
 
-const Repositories = () => (
-  <Fragment>
-    {isLoading && (
-      <Progressbar text="Getting the repositories list from Github" />
-    )}
-    <div className="repositories">
-      <div className="repositories__row">
-        <Input placeholder="search by tag" className="input input--medium" />
-      </div>
-      <div className="repositories__row">
-        <Table header={header} body={repositories} />
-      </div>
-    </div>
-  </Fragment>
-);
+class Repositories extends Component {
+  propTypes = {
+    getRepositories: PropTypes.func.isRequired,
+  }
+
+  componentDidMount() {
+    const { getRepositories } = this.props;
+    getRepositories();
+  }
+
+  render() {
+    return (
+      <Fragment>
+        {isLoading && (
+          <Progressbar text="Getting the repositories list from Github" />
+        )}
+        <div className="repositories">
+          <div className="repositories__row">
+            <Input placeholder="search by tag" className="input input--medium" />
+          </div>
+          <div className="repositories__row">
+            <Table header={header} body={repositories} />
+          </div>
+        </div>
+      </Fragment>
+    );
+  }
+}
 
 export default Repositories;

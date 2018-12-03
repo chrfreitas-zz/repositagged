@@ -1,11 +1,8 @@
 function getRepositories(username) {
-  const url = 'http://localhost:9000/respositories';
+  const url = `http://localhost:9000/respositories?username=${username}`;
 
   return fetch(url, {
     method: 'GET',
-    body: {
-      username,
-    },
   }).then(response => response.json());
 }
 
