@@ -4,7 +4,7 @@ import {
 import actions from '../actions';
 import api from '../api';
 
-function* getRepositoriesSaga(action) {
+export function* getRepositoriesSaga(action) {
   const repositories = yield call(api.getRepositories, action.data);
   yield put(actions.fetchRepositoriesListSuccess(repositories));
 }
