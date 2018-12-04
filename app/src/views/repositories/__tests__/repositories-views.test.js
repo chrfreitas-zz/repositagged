@@ -5,7 +5,9 @@ import Repositories from '../index';
 
 describe('Repositories View', () => {
   const props = {
-    repositories: [],
+    repositories: [{
+      name: 'mongodb',
+    }],
     match: {
       params: {
         username: 'xyz',
@@ -14,7 +16,14 @@ describe('Repositories View', () => {
     getRepositories: jest.fn(),
   };
 
-  it('should match with snapshot', () => {
+  it('should match view with table', () => {
+    const renderer = new ShallowRenderer();
+    const result = renderer.render(<Repositories {...props} />);
+    expect(result).toMatchSnapshot();
+  });
+
+  it('should match view with loading', () => {
+    props.repositories = [];
     const renderer = new ShallowRenderer();
     const result = renderer.render(<Repositories {...props} />);
     expect(result).toMatchSnapshot();

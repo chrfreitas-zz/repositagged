@@ -5,8 +5,6 @@ import Input from '../../components/ui/input';
 import Table from '../../components/ui/table';
 import './index.scss';
 
-const isLoading = false;
-
 const header = ['Repository', 'Description', 'Language', 'Tags', ''];
 
 class Repositories extends Component {
@@ -31,11 +29,12 @@ class Repositories extends Component {
   render() {
     const { repositories } = this.props;
 
+    if (!repositories.length) {
+      return <Progressbar text="Getting the repositories list from Github" />;
+    }
+
     return (
       <Fragment>
-        {isLoading && (
-          <Progressbar text="Getting the repositories list from Github" />
-        )}
         <div className="repositories">
           <div className="repositories__row">
             <Input placeholder="search by tag" className="input input--medium" />

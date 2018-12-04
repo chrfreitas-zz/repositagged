@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Repositories View should match with snapshot 1`] = `
+exports[`Repositories View should match view with loading 1`] = `
+<Progressbar
+  text="Getting the repositories list from Github"
+/>
+`;
+
+exports[`Repositories View should match view with table 1`] = `
 <React.Fragment>
   <div
     className="repositories"
@@ -17,7 +23,13 @@ exports[`Repositories View should match with snapshot 1`] = `
       className="repositories__row"
     >
       <Table
-        body={Array []}
+        body={
+          Array [
+            Object {
+              "name": "mongodb",
+            },
+          ]
+        }
         header={
           Array [
             "Repository",
