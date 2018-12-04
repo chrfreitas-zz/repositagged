@@ -3,9 +3,14 @@ import ShallowRenderer from 'react-test-renderer/shallow';
 import { shallow } from 'enzyme';
 import Repositories from '../index';
 
-describe('Repositories view', () => {
+describe('Repositories View', () => {
   const props = {
     repositories: [],
+    match: {
+      params: {
+        username: 'xyz',
+      },
+    },
     getRepositories: jest.fn(),
   };
 

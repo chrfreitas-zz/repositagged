@@ -11,13 +11,14 @@ const header = ['Repository', 'Description', 'Language', 'Tags', ''];
 
 class Repositories extends Component {
   propTypes = {
+    match: PropTypes.object,
     repositories: PropTypes.array,
     getRepositories: PropTypes.func.isRequired,
   }
 
   componentDidMount() {
-    const { getRepositories } = this.props;
-    getRepositories('chrfreitas');
+    const { getRepositories, match } = this.props;
+    getRepositories(match.params.username);
   }
 
   render() {

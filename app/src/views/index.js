@@ -8,7 +8,7 @@ const Views = () => (
   <Main>
     <Switch>
       <Route path="/home" component={Home} />
-      <Route path="/:user/repositories" component={RepositoriesContainer} />
+      <Route path="/:username/repositories" component={RepositoriesContainer} />
     </Switch>
   </Main>
 );
