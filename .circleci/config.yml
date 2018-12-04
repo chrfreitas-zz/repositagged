@@ -15,11 +15,18 @@ jobs:
 
       - run: yarn install
 
+      - run:
+          name: Install project dependencies
+          command: |
+            npm install -g yarn
+            yarn global add codecov
+            yarn global add wait-on
+            yarn install --frozen-lockfile
+
       - save_cache:
+          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-        
+            - ~/.cache
       
       - run:
           name: Run unit tests
