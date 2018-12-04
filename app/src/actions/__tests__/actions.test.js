@@ -30,4 +30,14 @@ describe('Actions', () => {
 
     expect(result).toEqual(actionExpected);
   });
+
+  it('should call return data and EDIT_TAGS_SUCCESS', () => {
+    const result = actions.editTagsSuccess({});
+    const actionExpected = {
+      type: actions.EDIT_TAGS_SUCCESS,
+      data: {},
+    };
+
+    expect(result).toEqual(actionExpected);
+  });
 });
