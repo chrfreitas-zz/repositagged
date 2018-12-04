@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export const BASE_URL = 'http://localhost:9000';
 
 const getRepositories = (username) => {
@@ -8,16 +10,13 @@ const getRepositories = (username) => {
   }).then(response => response.json());
 };
 
-const editTags = (id, tags) => {
-  const url = `${BASE_URL}/repositories/update`;
+const editTags = ({ id, tags }) => {
+  const url = `${BASE_URL}/repositories/create`;
 
-  return fetch(url, {
-    method: 'POST',
-    body: {
-      id,
-      tags,
-    },
-  }).then(response => response.json());
+  return axios.post(url, {
+    id,
+    tags,
+  });
 };
 
 export default {

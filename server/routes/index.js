@@ -37,10 +37,10 @@ const routes = [
     method: 'POST',
     path: '/repositories/create',
     handler: (request, h) => {
-      const repo = new Repository(request.payload)
+      const repo = new Repository(request.payload);
 
       const { db } = request.mongo;
-      db.collection('repositories').insertOne(repo)
+      db.collection('repositories').insertOne(repo);
 
       return h.response({}).code(200);
     },

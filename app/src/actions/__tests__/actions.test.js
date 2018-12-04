@@ -22,10 +22,10 @@ describe('Actions', () => {
   });
 
   it('should call return data and EDIT_TAGS', () => {
-    const result = actions.editTags('python');
+    const result = actions.editTags(1, 'python');
     const actionExpected = {
       type: actions.EDIT_TAGS,
-      data: 'python',
+      data: { id: 1, tags: 'python' },
     };
 
     expect(result).toEqual(actionExpected);

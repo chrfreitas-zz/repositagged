@@ -18,6 +18,7 @@ class Repositories extends Component {
     match: PropTypes.object,
     repositories: PropTypes.array,
     getRepositories: PropTypes.func.isRequired,
+    editTags: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
@@ -46,6 +47,14 @@ class Repositories extends Component {
     });
   };
 
+  editTags = (tags) => {
+    const { editTags } = this.props;
+    const { repository } = this.state;
+    const { id } = repository;
+
+    editTags(id, tags);
+  }
+
   render() {
     const { modalOpened, repository } = this.state;
     const { repositories } = this.props;
@@ -67,7 +76,7 @@ class Repositories extends Component {
         <ModalTags
           isOpen={modalOpened}
           repository={repository}
-          save={() => {}}
+          save={this.editTags}
           close={this.closeModal}
         />
       </Fragment>

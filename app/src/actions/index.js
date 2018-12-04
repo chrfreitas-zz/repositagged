@@ -14,9 +14,12 @@ const fetchRepositoriesListSuccess = data => ({
   data,
 });
 
-const editTags = data => ({
+const editTags = (id, tags) => ({
   type: EDIT_TAGS,
-  data,
+  data: {
+    id,
+    tags,
+  },
 });
 
 const editTagsSuccess = data => ({
