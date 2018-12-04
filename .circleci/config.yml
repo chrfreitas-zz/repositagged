@@ -1,31 +1,26 @@
-
 version: 2
 jobs:
   build:
     docker:
-      - image: cypress/base
+      - image: circleci/node:7.10
     working_directory: ~/repo
 
     steps:
       - checkout
-
+      
       - restore_cache:
-          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
-          key: v1-deps-{{ .Branch }}
-          key: v1-deps
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
 
-      - run:
-          name: Install project dependencies
-          command: |
-            npm install -g yarn
-            yarn global add codecov
-            yarn global add wait-on
-            yarn install --frozen-lockfile
+      - run: yarn install
+
       - save_cache:
-          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
-            - ~/.cache
-
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+        
+      
       - run:
           name: Run unit tests
           command: |
