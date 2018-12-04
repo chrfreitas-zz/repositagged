@@ -20,4 +20,14 @@ describe('Actions', () => {
 
     expect(result).toEqual(actionExpected);
   });
+
+  it('should call return data and EDIT_TAGS', () => {
+    const result = actions.editTags('python');
+    const actionExpected = {
+      type: actions.EDIT_TAGS,
+      data: 'python',
+    };
+
+    expect(result).toEqual(actionExpected);
+  });
 });
