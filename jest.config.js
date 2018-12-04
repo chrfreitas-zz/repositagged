@@ -41,4 +41,8 @@ module.exports = {
     'node',
   ],
   setupTestFrameworkScriptFile: '<rootDir>setup-tests.js',
+  coveragePathIgnorePatterns: [
+    '<rootDir>/app/src/store/index.js',
+    '<rootDir>/app/src/index.js',
+  ],
 };
