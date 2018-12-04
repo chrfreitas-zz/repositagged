@@ -1,7 +1,7 @@
-const API = 'http://localhost:9000';
+export const BASE_URL = 'http://localhost:9000';
 
 function getRepositories(username) {
-  const url = `${API}/repositories/${username}`;
+  const url = `${BASE_URL}/repositories/${username}`;
 
   return fetch(url, {
     method: 'GET',

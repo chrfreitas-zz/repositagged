@@ -13,7 +13,7 @@ describe('Repositories View', () => {
         username: 'xyz',
       },
     },
-    getRepositories: jest.fn(),
+    getRepositories: () => {},
   };
 
   it('should match view with table', () => {
@@ -29,10 +29,22 @@ describe('Repositories View', () => {
     expect(result).toMatchSnapshot();
   });
 
+  it('should set state to open modal and repository', () => {
+    const repository = {
+      name: 'mongodb',
+    };
+    const wrapper = shallow(<Repositories {...props} />);
+    wrapper.instance().openModal(repository);
+
+    expect(wrapper.state('modalOpened')).toBeTruthy();
+    expect(wrapper.state('repository')).toEqual(repository);
+  });
+
   describe('when it did mount', () => {
     it('should call getRepositories once', () => {
+      const spy = jest.spyOn(props, 'getRepositories');
       shallow(<Repositories {...props} />);
-      expect(props.getRepositories).toHaveBeenCalledTimes(1);
+      expect(spy).toHaveBeenCalledTimes(1);
     });
   });
 });
