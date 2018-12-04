@@ -39,19 +39,14 @@ exports[`Repositories View should match view with table 1`] = `
             "",
           ]
         }
+        onClick={[Function]}
       />
     </div>
   </div>
   <ModalTags
     close={[Function]}
-    isOpen={true}
-    repository={
-      Object {
-        "id": 1,
-        "name": "mongodb",
-        "tags": Array [],
-      }
-    }
+    isOpen={false}
+    repository={Object {}}
     save={[Function]}
   />
 </React.Fragment>

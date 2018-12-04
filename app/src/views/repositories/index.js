@@ -9,6 +9,11 @@ import './index.scss';
 const header = ['Repository', 'Description', 'Language', 'Tags', ''];
 
 class Repositories extends Component {
+  state = {
+    modalOpened: false,
+    repository: {},
+  }
+
   static propTypes = {
     match: PropTypes.object,
     repositories: PropTypes.array,
@@ -27,7 +32,22 @@ class Repositories extends Component {
     getRepositories(match.params.username);
   }
 
+  openModal = (repository) => {
+    this.setState({
+      modalOpened: true,
+      repository,
+    });
+  }
+
+  closeModal = () => {
+    this.setState({
+      modalOpened: false,
+      repository: {},
+    });
+  };
+
   render() {
+    const { modalOpened, repository } = this.state;
     const { repositories } = this.props;
 
     if (!repositories.length) {
@@ -41,18 +61,14 @@ class Repositories extends Component {
             <Input placeholder="search by tag" className="input input--medium" />
           </div>
           <div className="repositories__row">
-            <Table header={header} body={repositories} />
+            <Table header={header} body={repositories} onClick={this.openModal} />
           </div>
         </div>
         <ModalTags
-          isOpen
-          repository={{
-            id: 1,
-            name: 'mongodb',
-            tags: [],
-          }}
+          isOpen={modalOpened}
+          repository={repository}
           save={() => {}}
-          close={() => {}}
+          close={this.closeModal}
         />
       </Fragment>
     );

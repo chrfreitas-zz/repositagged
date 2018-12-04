@@ -36,11 +36,11 @@ exports[`Table view should match with snapshot 1`] = `
       </td>
       <td />
       <td>
-        <a
-          href="/test"
+        <Button
+          onClick={[Function]}
         >
           edit
-        </a>
+        </Button>
       </td>
     </tr>
     <tr>
@@ -55,11 +55,11 @@ exports[`Table view should match with snapshot 1`] = `
       </td>
       <td />
       <td>
-        <a
-          href="/test"
+        <Button
+          onClick={[Function]}
         >
           edit
-        </a>
+        </Button>
       </td>
     </tr>
     <tr>
@@ -74,11 +74,11 @@ exports[`Table view should match with snapshot 1`] = `
       </td>
       <td />
       <td>
-        <a
-          href="/test"
+        <Button
+          onClick={[Function]}
         >
           edit
-        </a>
+        </Button>
       </td>
     </tr>
   </tbody>
