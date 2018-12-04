@@ -10,6 +10,11 @@ const mapStateToProps = store => ({
   repositories: store.repositories,
 });
 
+export {
+  mapDispatchToProps,
+  mapStateToProps,
+};
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
