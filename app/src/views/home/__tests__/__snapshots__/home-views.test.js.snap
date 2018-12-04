@@ -9,15 +9,21 @@ exports[`Home view should match with snapshot 1`] = `
   >
     https://github.com/
     <Input
+      onChange={[Function]}
       placeholder="username"
     />
   </div>
   <div
     className="home__row"
   >
-    <Button>
-      get repositories
-    </Button>
+    <Link
+      replace={false}
+      to="/repositories"
+    >
+      <Button>
+        get repositories
+      </Button>
+    </Link>
   </div>
 </div>
 `;

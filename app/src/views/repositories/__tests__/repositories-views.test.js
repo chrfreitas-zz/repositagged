@@ -5,6 +5,7 @@ import Repositories from '../index';
 
 describe('Repositories view', () => {
   const props = {
+    repositories: [],
     getRepositories: jest.fn(),
   };
 

@@ -17,31 +17,7 @@ exports[`Repositories view should match with snapshot 1`] = `
       className="repositories__row"
     >
       <Table
-        body={
-          Array [
-            Object {
-              "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s",
-              "id": 1,
-              "language": "go",
-              "name": "kubernetes",
-              "tag": "",
-            },
-            Object {
-              "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s",
-              "id": 2,
-              "language": "python",
-              "name": "django",
-              "tag": "",
-            },
-            Object {
-              "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, nihil.s",
-              "id": 3,
-              "language": "javascript",
-              "name": "jest",
-              "tag": "",
-            },
-          ]
-        }
+        body={Array []}
         header={
           Array [
             "Repository",
