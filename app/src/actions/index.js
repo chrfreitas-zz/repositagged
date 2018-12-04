@@ -7,7 +7,7 @@ const fetchRepositoriesList = data => ({
 });
 
 const fetchRepositoriesListSuccess = data => ({
-  action: FETCH_REPOSITORIES_LIST_SUCCESS,
+  type: FETCH_REPOSITORIES_LIST_SUCCESS,
   data,
 });
 

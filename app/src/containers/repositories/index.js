@@ -3,7 +3,7 @@ import actions from '../../actions';
 import Repositories from '../../views/repositories';
 
 const mapDispatchToProps = dispatch => ({
-  getRepositories: () => dispatch(actions.fetchRepositoriesList('chrfreitas')),
+  getRepositories: username => dispatch(actions.fetchRepositoriesList(username)),
 });
 
 const mapStateToProps = store => ({

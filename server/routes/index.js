@@ -4,7 +4,7 @@ const Repository = require('../classes/repository');
 const routes = [
   {
     method: 'GET',
-    path: '/repositories',
+    path: '/repositories/{username}',
     handler: async (request, h) => {
       const { db } = request.mongo;
 

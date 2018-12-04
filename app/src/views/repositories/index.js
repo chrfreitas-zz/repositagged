@@ -43,7 +43,7 @@ class Repositories extends Component {
 
   componentDidMount() {
     const { getRepositories } = this.props;
-    getRepositories();
+    getRepositories('chrfreitas');
   }
 
   render() {

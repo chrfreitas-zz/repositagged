@@ -1,5 +1,5 @@
 function getRepositories(username) {
-  const url = `http://localhost:9000/respositories?username=${username}`;
+  const url = `http://localhost:9000/repositories/${username}`;
 
   return fetch(url, {
     method: 'GET',
