@@ -1,5 +1,7 @@
+const API = 'http://localhost:9000';
+
 function getRepositories(username) {
-  const url = `http://localhost:9000/repositories/${username}`;
+  const url = `${API}/repositories/${username}`;
 
   return fetch(url, {
     method: 'GET',
