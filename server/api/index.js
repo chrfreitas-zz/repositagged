@@ -1,11 +1,12 @@
-const fetch = require('node-fetch')
+const fetch = require('node-fetch');
 
-const URL = 'https://api.github.com/'
+const URL = 'https://api.github.com/';
 
-const fetchRespositories = () => 
-  fetch(`${URL}users/chrfreitas/starred`)
-    .then(response => response.json())
+function fetchRespositories(username) {
+  return fetch(`${URL}users/${username}/starred`)
+    .then(response => response.json());
+}
 
 module.exports = {
   fetchRespositories,
-}
+};

@@ -1,5 +1,5 @@
-const api = require('../api')
-const Repository = require('../classes/repository')
+const api = require('../api');
+const Repository = require('../classes/repository');
 
 const routes = [
   {
@@ -8,8 +8,8 @@ const routes = [
     handler: async (request, h) => {
       const { db } = request.mongo;
 
-      const dbRepos = await db.collection('repositories').find().toArray()
-      const apiRepos = await api.fetchRespositories()
+      const dbRepos = await db.collection('repositories').find().toArray();
+      const apiRepos = await api.fetchRespositories(request.params.username);
 
       const apiRepoSerialized = apiRepos.reduce((total, current) => {
         const repository = new Repository({
@@ -17,21 +17,21 @@ const routes = [
           name: current.name,
           description: current.description,
           url: current.html_url,
-          language: current.language
-        })
+          language: current.language,
+        });
 
-        total.push(repository)
+        total.push(repository);
 
-        return total
-      }, [])
+        return total;
+      }, []);
 
       const data = [
         ...apiRepoSerialized,
-        ...dbRepos
-      ]
+        ...dbRepos,
+      ];
 
       return h.response(data).code(200);
-    }
+    },
   },
   {
     method: 'POST',
@@ -43,7 +43,7 @@ const routes = [
       db.collection('repositories').insertOne(repo)
 
       return h.response({}).code(200);
-    }
+    },
   },
   {
     method: 'POST',
@@ -59,12 +59,12 @@ const routes = [
         $set: {
           tags,
           updatedAt: Date.now(),
-        }
-      })
+        },
+      });
 
       return h.response().code(200);
-    }
-  }
-]
+    },
+  },
+];
 
-module.exports = routes
+module.exports = routes;
