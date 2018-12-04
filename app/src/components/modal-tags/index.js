@@ -26,10 +26,20 @@ class ModalTags extends Component {
     this.setState({ tags: value });
   }
 
+  save = () => {
+    const { repository } = this.props;
+    const { tags } = this.state;
+
+    this.props.save({
+      ...repository,
+      tags,
+    });
+  }
+
   render() {
     const { tags } = this.state;
     const {
-      isOpen, repository, save, close,
+      isOpen, repository, close,
     } = this.props;
 
     return (
@@ -45,7 +55,7 @@ class ModalTags extends Component {
           autoFocus
         />
         <div className="modal__row">
-          <Button onClick={() => save(tags)}>Save</Button>
+          <Button onClick={this.save}>Save</Button>
           <Button onClick={close}>Cancel</Button>
         </div>
       </Modal>

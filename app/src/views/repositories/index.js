@@ -67,7 +67,7 @@ class Repositories extends Component {
         <ModalTags
           isOpen={modalOpened}
           repository={repository}
-          save={() => {}}
+          save={repo => console.log(repo)}
           close={this.closeModal}
         />
       </Fragment>
