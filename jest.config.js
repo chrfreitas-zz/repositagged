@@ -3,6 +3,8 @@ module.exports = {
     'app/src/**/*.{js,jsx,ts,tsx}',
     '!app/src/**/*.d.ts',
   ],
+  coverageDirectory: './coverage/',
+  collectCoverage: true,
   resolver: 'jest-pnp-resolver',
   setupFiles: [
     'react-app-polyfill/jsdom',
