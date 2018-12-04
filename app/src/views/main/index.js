@@ -11,7 +11,10 @@ const Main = ({ children }) => (
 );
 
 Main.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.element,
+  ]),
 };
 
 Main.defaultProps = {

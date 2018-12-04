@@ -10,10 +10,17 @@ const isLoading = false;
 const header = ['Repository', 'Description', 'Language', 'Tags', ''];
 
 class Repositories extends Component {
-  propTypes = {
+  static propTypes = {
     match: PropTypes.object,
     repositories: PropTypes.array,
     getRepositories: PropTypes.func.isRequired,
+  }
+
+  static defaultProps = {
+    match: {
+      param: {},
+    },
+    repositories: [],
   }
 
   componentDidMount() {
