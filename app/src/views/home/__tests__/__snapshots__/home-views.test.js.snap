@@ -20,7 +20,9 @@ exports[`Home view should match with snapshot 1`] = `
       replace={false}
       to="/repositories"
     >
-      <Button>
+      <Button
+        onClick={[Function]}
+      >
         get repositories
       </Button>
     </Link>

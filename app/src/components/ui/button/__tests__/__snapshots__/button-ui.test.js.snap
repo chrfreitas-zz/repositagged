@@ -3,6 +3,7 @@
 exports[`Button view should match with snapshot 1`] = `
 <button
   className="button"
+  onClick={[Function]}
   type="button"
 >
   Save

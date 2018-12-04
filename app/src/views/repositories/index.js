@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import Progressbar from '../../components/progressbar';
+import ModalTags from '../../components/modal-tags';
 import Input from '../../components/ui/input';
 import Table from '../../components/ui/table';
 import './index.scss';
@@ -43,6 +44,16 @@ class Repositories extends Component {
             <Table header={header} body={repositories} />
           </div>
         </div>
+        <ModalTags
+          isOpen
+          repository={{
+            id: 1,
+            name: 'mongodb',
+            tags: [],
+          }}
+          save={() => {}}
+          close={() => {}}
+        />
       </Fragment>
     );
   }

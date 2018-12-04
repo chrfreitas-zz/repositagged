@@ -1,0 +1,21 @@
+.modal {
+  top: 50%;
+  transform: translateY(-50%);
+  position: relative;
+  background: white;
+  border: 1px solid gray;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+
+  &__title {
+    font-weight: normal;
+    font-size: 16px;
+    margin: 0 0 5px 0;
+  }
+
+  &__row {
+    text-align: center;
+    margin: 20px 0 0 0;
+  }
+}
