@@ -1,25 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ModalTags component should match with snapshot 1`] = `
-<Modal
-  ariaHideApp={true}
-  bodyOpenClassName="ReactModal__Body--open"
-  className="modal"
-  closeTimeoutMS={0}
+<ModalUI
+  cancel={[Function]}
+  confirm={[Function]}
   isOpen={true}
-  parentSelector={[Function]}
-  portalClassName="ReactModalPortal"
-  role="dialog"
-  shouldCloseOnEsc={true}
-  shouldCloseOnOverlayClick={true}
-  shouldFocusAfterRender={true}
-  shouldReturnFocusAfterClose={true}
+  title="edit tags for mongodb"
 >
-  <h5
-    className="modal__title"
-  >
-    edit tags for mongodb
-  </h5>
   <Input
     autoFocus={true}
     className="input input--full"
@@ -27,19 +14,5 @@ exports[`ModalTags component should match with snapshot 1`] = `
     placeholder="Create new tags"
     value={Array []}
   />
-  <div
-    className="modal__row"
-  >
-    <Button
-      onClick={[Function]}
-    >
-      Save
-    </Button>
-    <Button
-      onClick={[Function]}
-    >
-      Cancel
-    </Button>
-  </div>
-</Modal>
+</ModalUI>
 `;
