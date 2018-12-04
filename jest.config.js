@@ -38,4 +38,5 @@ module.exports = {
     'jsx',
     'node',
   ],
+  setupTestFrameworkScriptFile: '<rootDir>setup-tests.js',
 };
