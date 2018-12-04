@@ -9,7 +9,7 @@ export function* getRepositoriesSaga(action) {
   yield put(actions.fetchRepositoriesListSuccess(repositories));
 }
 
-function* takeActions() {
+export function* takeActions() {
   yield takeEvery(actions.FETCH_REPOSITORIES_LIST, getRepositoriesSaga);
 }
 
