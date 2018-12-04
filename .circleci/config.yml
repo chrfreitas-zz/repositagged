@@ -29,7 +29,7 @@ jobs:
       - run:
           name: Run unit tests
           command: |
-            yarn test --coverage
+            yarn app:test --coverage
             codecov < ./coverage/lcov.info || true
           
 
