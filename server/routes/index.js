@@ -1,3 +1,4 @@
+const Joi = require('joi');
 const api = require('../api');
 const Repository = require('../classes/repository');
 
@@ -32,6 +33,13 @@ const routes = [
 
       return h.response(data).code(200);
     },
+    options: {
+      validate: {
+        params: {
+          username: Joi.string(),
+        },
+      },
+    },
   },
   {
     method: 'POST',
@@ -44,6 +52,21 @@ const routes = [
 
       const [response] = result.ops;
       return h.response(response).code(200);
+    },
+    options: {
+      validate: {
+        payload: {
+          id: Joi.number(),
+          name: Joi.string(),
+          description: Joi.string(),
+          url: Joi.string(),
+          language: Joi.string(),
+          tagged: Joi.boolean(),
+          createdAt: Joi.number(),
+          updatedAt: Joi.number(),
+          tags: Joi.string(),
+        },
+      },
     },
   },
   {
@@ -64,6 +87,21 @@ const routes = [
       });
 
       return h.response().code(200);
+    },
+    options: {
+      validate: {
+        payload: {
+          id: Joi.number(),
+          name: Joi.string(),
+          description: Joi.string(),
+          url: Joi.string(),
+          language: Joi.string(),
+          tagged: Joi.boolean(),
+          createdAt: Joi.number(),
+          updatedAt: Joi.number(),
+          tags: Joi.string(),
+        },
+      },
     },
   },
 ];

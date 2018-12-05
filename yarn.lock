@@ -5628,7 +5628,7 @@ joi@13.x.x:
     isemail "3.x.x"
     topo "3.x.x"
 
-joi@14.x.x:
+joi@14.x.x, joi@^14.3.0:
   version "14.3.0"
   resolved "https://registry.yarnpkg.com/joi/-/joi-14.3.0.tgz#55f7c5caa8256de74ccb12eb22ab1c19eea02db3"
   dependencies:
