@@ -4,7 +4,7 @@ import {
 import { cloneableGenerator } from 'redux-saga/utils';
 import actions from '../../actions';
 import api from '../../api';
-import sagas, { getRepositoriesSaga, editTagsSaga, takeActions } from '..';
+import sagas, { getRepositoriesSaga, updateSaga, takeActions } from '..';
 
 describe('Sagas', () => {
   describe('getRepositoriesSaga', () => {
@@ -29,15 +29,15 @@ describe('Sagas', () => {
     });
   });
 
-  describe('editTagsSaga', () => {
+  describe('updateSaga', () => {
     const action = {
       data: 'ruby',
     };
 
-    const gen = cloneableGenerator(editTagsSaga)(action);
+    const gen = cloneableGenerator(updateSaga)(action);
 
     it('should call api', () => {
-      const callGenerator = call(api.editTags, action.data);
+      const callGenerator = call(api.update, action.data);
       expect(gen.next().value).toEqual(callGenerator);
     });
 
@@ -47,7 +47,7 @@ describe('Sagas', () => {
         tags: action.data,
       };
 
-      const putGenerator = put(actions.editTagsSuccess(response));
+      const putGenerator = put(actions.updateSuccess(response));
       expect(gen.next(response).value).toEqual(putGenerator);
     });
   });

@@ -15,11 +15,6 @@ describe('Respositories Container', () => {
     expect(wrapper.props()).toHaveProperty('repositories', []);
   });
 
-  it('should have a dispatch editTag', () => {
-    const wrapper = shallow(<RepositoriesContainer store={store} />);
-    expect(typeof wrapper.props().editTags === 'function').toBeTruthy();
-  });
-
   it('should have a dispatch getRepositories', () => {
     const wrapper = shallow(<RepositoriesContainer store={store} />);
     expect(typeof wrapper.props().getRepositories === 'function').toBeTruthy();

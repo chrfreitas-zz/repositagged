@@ -29,17 +29,6 @@ describe('Repositories View', () => {
     expect(result).toMatchSnapshot();
   });
 
-  it('should set state to open modal and repository', () => {
-    const repository = {
-      name: 'mongodb',
-    };
-    const wrapper = shallow(<Repositories {...props} />);
-    wrapper.instance().openModal(repository);
-
-    expect(wrapper.state('modalOpened')).toBeTruthy();
-    expect(wrapper.state('repository')).toEqual(repository);
-  });
-
   describe('when it did mount', () => {
     it('should call getRepositories once', () => {
       const spy = jest.spyOn(props, 'getRepositories');

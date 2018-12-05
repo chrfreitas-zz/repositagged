@@ -7,47 +7,38 @@ exports[`Repositories View should match view with loading 1`] = `
 `;
 
 exports[`Repositories View should match view with table 1`] = `
-<React.Fragment>
+<div
+  className="repositories"
+>
   <div
-    className="repositories"
+    className="repositories__row"
   >
-    <div
-      className="repositories__row"
-    >
-      <Input
-        className="input input--medium"
-        placeholder="search by tag"
-      />
-    </div>
-    <div
-      className="repositories__row"
-    >
-      <Table
-        body={
-          Array [
-            Object {
-              "name": "mongodb",
-            },
-          ]
-        }
-        header={
-          Array [
-            "Repository",
-            "Description",
-            "Language",
-            "Tags",
-            "",
-          ]
-        }
-        onClick={[Function]}
-      />
-    </div>
+    <Input
+      className="input input--medium"
+      placeholder="search by tag"
+    />
   </div>
-  <ModalTags
-    close={[Function]}
-    isOpen={false}
-    repository={Object {}}
-    save={[Function]}
-  />
-</React.Fragment>
+  <div
+    className="repositories__row"
+  >
+    <Table
+      body={
+        Array [
+          Object {
+            "name": "mongodb",
+          },
+        ]
+      }
+      header={
+        Array [
+          "Repository",
+          "Description",
+          "Language",
+          "Tags",
+          "",
+        ]
+      }
+    />
+  </div>
+</div>
 `;
