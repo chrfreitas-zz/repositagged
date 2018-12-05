@@ -27,6 +27,7 @@ class Home extends Component {
           <Link to={`${username}/repositories`}>
             <Button>
               get repositories
+              <i className="fas fa-caret-right" />
             </Button>
           </Link>
         </div>

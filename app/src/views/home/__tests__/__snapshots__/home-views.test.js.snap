@@ -24,6 +24,9 @@ exports[`Home view should match with snapshot 1`] = `
         onClick={[Function]}
       >
         get repositories
+        <i
+          className="fas fa-caret-right"
+        />
       </Button>
     </Link>
   </div>
