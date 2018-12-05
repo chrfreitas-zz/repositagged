@@ -36,13 +36,14 @@ const routes = [
   {
     method: 'POST',
     path: '/repositories/create',
-    handler: (request, h) => {
-      const repo = new Repository(request.payload);
+    handler: async (request, h) => {
+      const repository = new Repository(request.payload);
 
       const { db } = request.mongo;
-      db.collection('repositories').insertOne(repo);
+      const result = await db.collection('repositories').insertOne(repository);
 
-      return h.response({}).code(200);
+      const [response] = result.ops;
+      return h.response(response).code(200);
     },
   },
   {
