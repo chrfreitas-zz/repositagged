@@ -2,10 +2,15 @@ import actions from '..';
 
 describe('Repository Action', () => {
   it('should call return data and UPDATE', () => {
-    const result = actions.update(1, 'python');
+    const data = {
+      name: 'c#',
+      tags: 'microsoft, dotnet',
+    };
+
+    const result = actions.update(data);
     const actionExpected = {
       type: actions.UPDATE,
-      data: { id: 1, tags: 'python' },
+      data,
     };
 
     expect(result).toEqual(actionExpected);

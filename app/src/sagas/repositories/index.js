@@ -1,6 +1,4 @@
-import {
-  put, call, takeEvery,
-} from 'redux-saga/effects';
+import { put, call, takeEvery } from 'redux-saga/effects';
 import actions from '../../actions/repositories';
 import api from '../../api';
 

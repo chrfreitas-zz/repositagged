@@ -1,12 +1,9 @@
 const UPDATE = 'UPDATE';
 const UPDATE_SUCCESS = 'UPDATE_SUCCESS';
 
-const update = (id, tags) => ({
+const update = data => ({
   type: UPDATE,
-  data: {
-    id,
-    tags,
-  },
+  data,
 });
 
 const updateSuccess = data => ({
