@@ -42,8 +42,8 @@ const routes = [
     },
   },
   {
-    method: 'POST',
-    path: '/repositories/create',
+    method: 'PUT',
+    path: '/repositories/',
     handler: async (request, h) => {
       const repository = new Repository(request.payload);
 
@@ -58,9 +58,9 @@ const routes = [
         payload: {
           id: Joi.number(),
           name: Joi.string(),
-          description: Joi.string(),
+          description: Joi.any().optional(),
           url: Joi.string(),
-          language: Joi.string(),
+          language: Joi.any().optional(),
           tagged: Joi.boolean(),
           createdAt: Joi.number(),
           updatedAt: Joi.number(),
@@ -71,7 +71,7 @@ const routes = [
   },
   {
     method: 'POST',
-    path: '/repositories/update',
+    path: '/repositories/',
     handler: (request, h) => {
       const { db } = request.mongo;
 
@@ -93,9 +93,9 @@ const routes = [
         payload: {
           id: Joi.number(),
           name: Joi.string(),
-          description: Joi.string(),
+          description: Joi.any().optional(),
           url: Joi.string(),
-          language: Joi.string(),
+          language: Joi.any().optional(),
           tagged: Joi.boolean(),
           createdAt: Joi.number(),
           updatedAt: Joi.number(),

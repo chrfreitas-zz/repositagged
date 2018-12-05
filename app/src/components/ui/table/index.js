@@ -20,7 +20,7 @@ const Table = ({ header, body }) => (
           <td>{item.language}</td>
           <td>{item.tags}</td>
           <td>
-            <Link to={`repositories/${item.id}/update`}>
+            <Link to={`${item.id}/update`}>
               edit
             </Link>
           </td>

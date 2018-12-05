@@ -38,7 +38,7 @@ exports[`Table view should match with snapshot 1`] = `
       <td>
         <Link
           replace={false}
-          to="1/update"
+          to="repositories/1/update"
         >
           edit
         </Link>
@@ -58,7 +58,7 @@ exports[`Table view should match with snapshot 1`] = `
       <td>
         <Link
           replace={false}
-          to="2/update"
+          to="repositories/2/update"
         >
           edit
         </Link>
@@ -78,7 +78,7 @@ exports[`Table view should match with snapshot 1`] = `
       <td>
         <Link
           replace={false}
-          to="3/update"
+          to="repositories/3/update"
         >
           edit
         </Link>
