@@ -1,8 +1,8 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put } from 'redux-saga/effects';
 import { cloneableGenerator } from 'redux-saga/utils';
-import actions from '../../../actions/repository';
+import actions from '../../../actions/repositories';
 import api from '../../../api';
-import { getRepositoriesSaga, takeActions } from '..';
+import { getRepositoriesSaga } from '..';
 
 describe('Sagas', () => {
   describe('getRepositoriesSaga', () => {
@@ -24,15 +24,6 @@ describe('Sagas', () => {
 
       const putGenerator = put(actions.fetchRepositoriesListSuccess(response));
       expect(gen.next(response).value).toEqual(putGenerator);
-    });
-  });
-
-  describe('takeActions', () => {
-    const gen = cloneableGenerator(takeActions)();
-
-    it('should call takeEvery with some actions', () => {
-      const takeGenerator = takeEvery(actions.FETCH_REPOSITORIES_LIST, getRepositoriesSaga);
-      expect(gen.next().value).toEqual(takeGenerator);
     });
   });
 });
