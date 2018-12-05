@@ -57,17 +57,17 @@ const routes = [
     method: 'POST',
     path: '/repositories/',
     handler: (request, h) => {
+      const repository = {
+        ...request.payload,
+        updatedAt: Date.now(),
+      };
+
       const { db } = request.mongo;
 
-      const { id, tags } = request.payload;
-
       db.collection('repositories').updateOne({
-        id,
+        id: repository.id,
       }, {
-        $set: {
-          tags,
-          updatedAt: Date.now(),
-        },
+        $set: { ...repository },
       });
 
       return h.response().code(200);
