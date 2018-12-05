@@ -9,6 +9,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = (state, { match }) => ({
+  username: match.params.username,
   repository: getRepositoryById(state.repositories, parseInt(match.params.id, 10)),
 });
 

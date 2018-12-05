@@ -6,6 +6,7 @@ class Repository extends Component {
   static propTypes = {
     repository: PropTypes.object.isRequired,
     update: PropTypes.func.isRequired,
+    username: PropTypes.string.isRequired,
   }
 
   edit = (tags) => {
@@ -18,14 +19,14 @@ class Repository extends Component {
   }
 
   render() {
-    const { repository } = this.props;
+    const { repository, username } = this.props;
 
     return (
       <ModalTags
         isOpen
         repository={repository}
         save={this.edit}
-        close={() => {}}
+        username={username}
       />
     );
   }
