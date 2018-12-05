@@ -1,9 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Button from '../button';
 import './index.scss';
 
-const Table = ({ header, body, onClick }) => (
+const Table = ({ header, body }) => (
   <table className="table">
     <thead>
       <tr>
@@ -20,7 +20,9 @@ const Table = ({ header, body, onClick }) => (
           <td>{item.language}</td>
           <td>{item.tags}</td>
           <td>
-            <Button onClick={() => onClick(item)}>edit</Button>
+            <Link to={`${item.id}/update`}>
+              edit
+            </Link>
           </td>
         </tr>
       ))}
@@ -31,11 +33,6 @@ const Table = ({ header, body, onClick }) => (
 Table.propTypes = {
   header: PropTypes.array.isRequired,
   body: PropTypes.array.isRequired,
-  onClick: PropTypes.func,
-};
-
-Table.defaultProps = {
-  onClick: () => {},
 };
 
 export default Table;

@@ -9,14 +9,14 @@ export function* getRepositoriesSaga(action) {
   yield put(actions.fetchRepositoriesListSuccess(repositories));
 }
 
-export function* editTagsSaga(action) {
-  const repository = yield call(api.editTags, action.data);
-  yield put(actions.editTagsSuccess(repository));
+export function* updateSaga(action) {
+  const repository = yield call(api.update, action.data);
+  yield put(actions.updateSuccess(repository));
 }
 
 export function* takeActions() {
   yield takeEvery(actions.FETCH_REPOSITORIES_LIST, getRepositoriesSaga);
-  yield takeEvery(actions.EDIT_TAGS, editTagsSaga);
+  yield takeEvery(actions.UPDATE, updateSaga);
 }
 
 export default function* sagas() {

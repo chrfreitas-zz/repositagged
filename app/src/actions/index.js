@@ -1,7 +1,7 @@
 const FETCH_REPOSITORIES_LIST = 'FETCH_REPOSITORIES_LIST';
 const FETCH_REPOSITORIES_LIST_SUCCESS = 'FETCH_REPOSITORIES_LIST_SUCCESS';
-const EDIT_TAGS = 'EDIT_TAGS';
-const EDIT_TAGS_SUCCESS = 'EDIT_TAGS_SUCCESS';
+const UPDATE = 'UPDATE';
+const UPDATE_SUCCESS = 'UPDATE_SUCCESS';
 
 
 const fetchRepositoriesList = data => ({
@@ -14,26 +14,26 @@ const fetchRepositoriesListSuccess = data => ({
   data,
 });
 
-const editTags = (id, tags) => ({
-  type: EDIT_TAGS,
+const update = (id, tags) => ({
+  type: UPDATE,
   data: {
     id,
     tags,
   },
 });
 
-const editTagsSuccess = data => ({
-  type: EDIT_TAGS_SUCCESS,
+const updateSuccess = data => ({
+  type: UPDATE_SUCCESS,
   data,
 });
 
 export default {
   FETCH_REPOSITORIES_LIST,
   FETCH_REPOSITORIES_LIST_SUCCESS,
-  EDIT_TAGS,
-  EDIT_TAGS_SUCCESS,
+  UPDATE,
+  UPDATE_SUCCESS,
   fetchRepositoriesList,
   fetchRepositoriesListSuccess,
-  editTags,
-  editTagsSuccess,
+  update,
+  updateSuccess,
 };

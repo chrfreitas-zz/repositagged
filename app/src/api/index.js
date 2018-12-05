@@ -10,16 +10,12 @@ const getRepositories = (username) => {
   }).then(response => response.json());
 };
 
-const editTags = ({ id, tags }) => {
+const update = (repository) => {
   const url = `${BASE_URL}/repositories/create`;
-
-  return axios.post(url, {
-    id,
-    tags,
-  });
+  return axios.post(url, repository);
 };
 
 export default {
   getRepositories,
-  editTags,
+  update,
 };
