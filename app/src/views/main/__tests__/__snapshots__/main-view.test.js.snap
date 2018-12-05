@@ -4,9 +4,13 @@ exports[`Main view should match with snapshot 1`] = `
 <div
   className="main"
 >
-  <Header
-    title="githubstars"
-  />
+  <div
+    className="main__header"
+  >
+    <Header
+      title="githubstars"
+    />
+  </div>
   <div
     className="main__content"
   >

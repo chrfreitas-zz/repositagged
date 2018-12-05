@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import RepositoryContainer from '..';
 
 
-describe('Respositories Container', () => {
+describe('Respository Container', () => {
   const mockStore = configureStore();
   const store = mockStore({
     repositories: [
@@ -17,6 +17,7 @@ describe('Respositories Container', () => {
     match: {
       params: {
         id: 1,
+        username: 'edgarwright',
       },
     },
   };

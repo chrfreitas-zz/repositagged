@@ -4,8 +4,6 @@ import { Redirect } from 'react-router';
 import Modal from '../ui/modal';
 import Input from '../ui/input';
 
-const hasRepository = repository => Object.keys(repository).length !== 0;
-
 class ModalTags extends Component {
   state = {
     tags: [],
@@ -36,6 +34,8 @@ class ModalTags extends Component {
     this.setState({ closed: true });
   }
 
+  hasRepository = repository => Object.keys(repository).length !== 0;
+
   render() {
     const { tags, closed } = this.state;
     const { repository, username } = this.props;
@@ -47,7 +47,7 @@ class ModalTags extends Component {
     return (
       <Modal
         title={`edit tags for ${repository.name}`}
-        isOpen={hasRepository(repository)}
+        isOpen={this.hasRepository(repository)}
         confirm={this.onConfirm}
         cancel={this.closeModal}
       >

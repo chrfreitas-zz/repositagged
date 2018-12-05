@@ -4,32 +4,27 @@ import ShallowRenderer from 'react-test-renderer/shallow';
 import ModalTags from '../index';
 
 describe('ModalTags component', () => {
-  const repository = {
-    id: 1,
-    name: 'mongodb',
+  const props = {
+    isOpen: true,
+    username: 'jonfavreau',
+    repository: {
+      id: 1,
+      name: 'mongodb',
+    },
+    save: () => {},
   };
 
   it('should match with snapshot', () => {
     const renderer = new ShallowRenderer();
     const result = renderer.render(
-      <ModalTags
-        isOpen
-        save={() => {}}
-        close={() => {}}
-        repository={repository}
-      />,
+      <ModalTags {...props} />,
     );
 
     expect(result).toMatchSnapshot();
   });
 
   it('shoudl change value of tags state', () => {
-    const wrapper = shallow(<ModalTags
-      isOpen
-      save={() => {}}
-      close={() => {}}
-      repository={repository}
-    />);
+    const wrapper = shallow(<ModalTags {...props} />);
 
     const evt = {
       target: {
@@ -42,13 +37,8 @@ describe('ModalTags component', () => {
   });
 
   it('should check if there is a repository', () => {
-    const wrapper = shallow(<ModalTags
-      isOpen
-      save={() => {}}
-      close={() => {}}
-      repository={repository}
-    />);
+    const wrapper = shallow(<ModalTags {...props} />);
 
-    expect(wrapper.instance().hasRepository()).toBeTruthy();
+    expect(wrapper.instance().hasRepository(props.repository)).toBeTruthy();
   });
 });

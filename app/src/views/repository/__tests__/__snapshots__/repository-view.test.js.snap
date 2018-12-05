@@ -2,7 +2,6 @@
 
 exports[`Repository View should match with snapshot 1`] = `
 <ModalTags
-  close={[Function]}
   isOpen={true}
   repository={
     Object {
@@ -10,5 +9,6 @@ exports[`Repository View should match with snapshot 1`] = `
     }
   }
   save={[Function]}
+  username="damienchazelle"
 />
 `;

@@ -4,6 +4,18 @@ exports[`Header view should match with snapshot 1`] = `
 <div
   className="header"
 >
-  Sejá bem vindo
+  <div
+    className="header__title"
+  >
+    Sejá bem vindo
+  </div>
+  <div
+    className="header__menu"
+  >
+    <Route
+      component={[Function]}
+      path="/:username/repositories"
+    />
+  </div>
 </div>
 `;

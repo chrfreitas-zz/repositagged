@@ -8,6 +8,7 @@ describe('Repository View', () => {
     repository: {
       id: 1,
     },
+    username: 'damienchazelle',
     update: () => {},
   };
 
