@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import actions from '../../actions';
+import actions from '../../actions/repositories';
 import Repositories from '../../views/repositories';
 
 const mapDispatchToProps = dispatch => ({

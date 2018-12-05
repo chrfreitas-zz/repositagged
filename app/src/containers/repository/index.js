@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import actions from '../../actions';
+import actions from '../../actions/repository';
 import Repository from '../../views/repository';
 
 const getRepositoryById = (repositories, id) => repositories.find(repo => repo.id === id);

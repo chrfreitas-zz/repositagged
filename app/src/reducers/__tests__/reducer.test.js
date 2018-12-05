@@ -1,5 +1,5 @@
 import reducer from '..';
-import actions from '../../actions';
+import actions from '../../actions/repositories';
 
 describe('Reducer', () => {
   it('should return initial state', () => {
