@@ -9,6 +9,6 @@ describe('Repository Api', () => {
     };
 
     api.update(repository);
-    expect(mockAxios.post).toHaveBeenCalledWith(`${BASE_URL}/repositories/create`, repository);
+    expect(mockAxios.put).toHaveBeenCalledWith(`${BASE_URL}/repositories/`, repository);
   });
 });
