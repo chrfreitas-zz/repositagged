@@ -1,6 +1,6 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 import actions from '../../actions/repositories';
-import api from '../../api';
+import api from '../../api/repositories';
 
 export function* getRepositoriesSaga(action) {
   const repositories = yield call(api.getRepositories, action.data);

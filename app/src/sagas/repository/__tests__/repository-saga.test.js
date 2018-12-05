@@ -1,7 +1,7 @@
 import { call, put } from 'redux-saga/effects';
 import { cloneableGenerator } from 'redux-saga/utils';
 import actions from '../../../actions/repository';
-import api from '../../../api';
+import api from '../../../api/repository';
 import { updateSaga } from '..';
 
 describe('Sagas', () => {
