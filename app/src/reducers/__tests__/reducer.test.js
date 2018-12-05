@@ -1,5 +1,6 @@
 import reducer from '..';
-import actions from '../../actions/repositories';
+import repositoriesAction from '../../actions/repositories';
+import repositoryActions from '../../actions/repository';
 
 describe('Reducer', () => {
   it('should return initial state', () => {
@@ -23,7 +24,7 @@ describe('Reducer', () => {
     };
 
     const action = {
-      type: actions.FETCH_REPOSITORIES_LIST_SUCCESS,
+      type: repositoriesAction.FETCH_REPOSITORIES_LIST_SUCCESS,
       data: [{
         name: 'mongodb',
         description: 'mongodb repository',
@@ -32,5 +33,25 @@ describe('Reducer', () => {
 
     const result = reducer(state, action);
     expect(result.repositories).toBe(action.data);
+  });
+
+  it('should update a repository', () => {
+    const state = {
+      repositories: [{
+        id: 1,
+        tags: '',
+      }],
+    };
+
+    const action = {
+      type: repositoryActions.UPDATE_SUCCESS,
+      data: {
+        id: 1,
+        tags: 'kotlin',
+      },
+    };
+
+    const result = reducer(state, action);
+    expect(result.repositories[0]).toBe(action.data);
   });
 });
