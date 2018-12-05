@@ -8,8 +8,12 @@
     "app:test": "node app/scripts/test.js",
     "app:build": "node app/scripts/build.js",
     "app:eslint": "eslint .",
-    "app:stylelint": "stylelint '**/*.scss'",
-    "precommit": "lint-staged"
+    "app:stylelint": "stylelint '**/*.scss'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "@babel/core": "7.1.0",
