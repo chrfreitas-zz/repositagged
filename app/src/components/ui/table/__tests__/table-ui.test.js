@@ -35,7 +35,7 @@ describe('Table view', () => {
 
     const renderer = new ShallowRenderer();
     const result = renderer.render(
-      <Table header={header} body={repositories} />
+      <Table header={header} body={repositories} baseUrl="/test" />,
     );
     expect(result).toMatchSnapshot();
   });

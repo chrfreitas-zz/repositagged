@@ -27,7 +27,7 @@ class Repositories extends Component {
   }
 
   render() {
-    const { repositories } = this.props;
+    const { repositories, match } = this.props;
 
     if (!repositories.length) {
       return <Progressbar text="Getting the repositories list from Github" />;
@@ -39,7 +39,7 @@ class Repositories extends Component {
           <Input placeholder="search by tag" className="input input--medium" />
         </div>
         <div className="repositories__row">
-          <Table header={header} body={repositories} onClick={this.openModal} />
+          <Table header={header} body={repositories} baseUrl={match.url} />
         </div>
       </div>
     );

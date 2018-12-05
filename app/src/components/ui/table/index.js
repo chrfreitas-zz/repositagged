@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './index.scss';
 
-const Table = ({ header, body }) => (
+const Table = ({ header, body, baseUrl }) => (
   <table className="table">
     <thead>
       <tr>
@@ -20,7 +20,7 @@ const Table = ({ header, body }) => (
           <td>{item.language}</td>
           <td>{item.tags}</td>
           <td>
-            <Link to={`${item.id}/update`}>
+            <Link to={`${baseUrl}/${item.id}/update`}>
               edit
             </Link>
           </td>
@@ -33,6 +33,7 @@ const Table = ({ header, body }) => (
 Table.propTypes = {
   header: PropTypes.array.isRequired,
   body: PropTypes.array.isRequired,
+  baseUrl: PropTypes.string.isRequired,
 };
 
 export default Table;
