@@ -8,14 +8,18 @@ const routes = [
     method: 'GET',
     path: '/repositories/{username}',
     handler: async (request, h) => {
+      const { username } = request.params;
       const { db } = request.mongo;
 
-      const dbRepositories = await db.collection('repositories').find().toArray();
-      const apiRepositories = await api.fetchRespositories(request.params.username);
+      const [dbCollection] = await db.collection('repositories').find({ username }).toArray();
+      const apiCollection = await api.fetchRespositories(username);
 
-      const data = unionBy(dbRepositories, apiRepositories, 'id');
+      if (dbCollection) {
+        const data = unionBy(dbCollection.repositories, apiCollection, 'id');
+        return h.response(data).code(200);
+      }
 
-      return h.response(data).code(200);
+      return h.response(apiCollection).code(200);
     },
     options: {
       validate: {
@@ -26,33 +30,18 @@ const routes = [
     },
   },
   {
-    method: 'GET',
-    path: '/repository/{id}',
-    handler: async (request, h) => {
-      const { db } = request.mongo;
-
-      const [data] = await db.collection('repositories').find({
-        id: request.params.id,
-      }).toArray();
-
-      return h.response(data).code(200);
-    },
-    options: {
-      validate: {
-        params: {
-          id: Joi.string(),
-        },
-      },
-    },
-  },
-  {
     method: 'PUT',
     path: '/repositories/',
     handler: async (request, h) => {
       const repository = new Repository(request.payload);
 
+      const data = {
+        username: 'chrfreitas',
+        repositories: [repository],
+      };
+
       const { db } = request.mongo;
-      const result = await db.collection('repositories').insertOne(repository);
+      const result = await db.collection('repositories').insertOne(data);
 
       const [response] = result.ops;
       return h.response(response).code(200);
