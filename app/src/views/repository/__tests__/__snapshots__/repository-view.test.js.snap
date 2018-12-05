@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Repository View should match with snapshot 1`] = `
+<ModalTags
+  close={[Function]}
+  isOpen={true}
+  repository={
+    Object {
+      "id": 1,
+    }
+  }
+  save={[Function]}
+/>
+`;
