@@ -12,7 +12,6 @@ exports[`ModalTags component should match with snapshot 1`] = `
     className="input input--full"
     onChange={[Function]}
     placeholder="Create new tags"
-    value={Array []}
   />
 </ModalUI>
 `;

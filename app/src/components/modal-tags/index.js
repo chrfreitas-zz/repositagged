@@ -6,7 +6,7 @@ import Input from '../ui/input';
 
 class ModalTags extends Component {
   state = {
-    tags: [],
+    tags: this.props.repository.tags,
     closed: false,
   }
 
