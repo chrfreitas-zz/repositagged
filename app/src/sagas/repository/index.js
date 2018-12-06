@@ -6,7 +6,6 @@ export function* setTagsSaga(action) {
   let repository = {};
 
   if (action.data.tagged) {
-    console.log(action.data);
     repository = yield call(api.update, action.data);
   } else {
     repository = yield call(api.create, { ...action.data, tagged: true });

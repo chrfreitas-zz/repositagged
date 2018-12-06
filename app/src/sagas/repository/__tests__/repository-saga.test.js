@@ -5,9 +5,12 @@ import api from '../../../api/repository';
 import { setTagsSaga } from '..';
 
 describe('Sagas', () => {
-  describe('setTagsSaga', () => {
+  describe('when repository is tagged', () => {
     const action = {
-      data: 'ruby',
+      data: {
+        name: 'ruby',
+        tagged: true,
+      },
     };
 
     const gen = cloneableGenerator(setTagsSaga)(action);
@@ -17,14 +20,30 @@ describe('Sagas', () => {
       expect(gen.next().value).toEqual(callGenerator);
     });
 
-    it('shoudl call a success redux action', () => {
-      const response = {
-        name: 'mongodb',
-        tags: action.data,
-      };
+    it('should call a success redux action', () => {
+      const putGenerator = put(actions.setTagsSuccess(action.data));
+      expect(gen.next(action.data).value).toEqual(putGenerator);
+    });
+  });
 
-      const putGenerator = put(actions.setTagsSuccess(response));
-      expect(gen.next(response).value).toEqual(putGenerator);
+  describe('when repository is not tagged', () => {
+    const action = {
+      data: {
+        name: 'ruby',
+        tagged: false,
+      },
+    };
+
+    const gen = cloneableGenerator(setTagsSaga)(action);
+
+    it('should call api', () => {
+      const callGenerator = call(api.create, { ...action.data, tagged: true });
+      expect(gen.next().value).toEqual(callGenerator);
+    });
+
+    it('should call a success redux action', () => {
+      const putGenerator = put(actions.setTagsSuccess(action.data));
+      expect(gen.next(action.data).value).toEqual(putGenerator);
     });
   });
 });

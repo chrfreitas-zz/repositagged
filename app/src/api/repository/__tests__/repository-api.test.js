@@ -9,6 +9,16 @@ describe('Repository Api', () => {
     };
 
     api.update(repository);
+    expect(mockAxios.post).toHaveBeenCalledWith(`${BASE_URL}/repositories/`, repository);
+  });
+
+  it('should call create route with params', () => {
+    const repository = {
+      name: 'jquery',
+      tags: 'the best',
+    };
+
+    api.create(repository);
     expect(mockAxios.put).toHaveBeenCalledWith(`${BASE_URL}/repositories/`, repository);
   });
 });
