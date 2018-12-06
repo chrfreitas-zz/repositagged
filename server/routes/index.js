@@ -64,13 +64,8 @@ const routes = [
     handler: async (request, h) => {
       const repository = new Repository(request.payload);
 
-      const data = {
-        username: 'chrfreitas',
-        repositories: [repository],
-      };
-
       const { db } = request.mongo;
-      const result = await db.collection('repositories').insertOne(data);
+      const result = await db.collection('repositories').insertOne(repository);
 
       const [response] = result.ops;
       return h.response(response).code(200);
