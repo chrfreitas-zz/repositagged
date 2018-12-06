@@ -11,20 +11,49 @@ const routes = [
       const { username } = request.params;
       const { db } = request.mongo;
 
-      const [dbCollection] = await db.collection('repositories').find({ username }).toArray();
-      const apiCollection = await api.fetchRespositories(username);
+      const dbRepositories = await db.collection('repositories').find().toArray();
+      const apiRepositories = await api.fetchRespositories(username);
 
-      if (dbCollection) {
-        const data = unionBy(dbCollection.repositories, apiCollection, 'id');
-        return h.response(data).code(200);
-      }
+      const data = unionBy(dbRepositories, apiRepositories, 'id');
 
-      return h.response(apiCollection).code(200);
+      return h.response(data).code(200);
     },
     options: {
       validate: {
         params: {
           username: Joi.string(),
+        },
+      },
+    },
+  },
+  {
+    method: 'GET',
+    path: '/repositories/search',
+    handler: async (request, h) => {
+      const { query } = request.query;
+      const { db } = request.mongo;
+
+      const data = await db.collection('repositories').find().toArray();
+
+      return h.response({ data, query }).code(200);
+    },
+  },
+  {
+    method: 'GET',
+    path: '/repository/{id}',
+    handler: async (request, h) => {
+      const { db } = request.mongo;
+
+      const [data] = await db.collection('repositories').find({
+        id: request.params.id,
+      }).toArray();
+
+      return h.response(data).code(200);
+    },
+    options: {
+      validate: {
+        params: {
+          id: Joi.string(),
         },
       },
     },
