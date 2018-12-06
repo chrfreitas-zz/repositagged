@@ -1,19 +1,19 @@
-const UPDATE = 'UPDATE';
-const UPDATE_SUCCESS = 'UPDATE_SUCCESS';
+const SET_TAGS = 'SET_TAGS';
+const SET_TAGS_SUCCESS = 'SET_TAGS_SUCCESS';
 
-const update = data => ({
-  type: UPDATE,
+const setTags = data => ({
+  type: SET_TAGS,
   data,
 });
 
-const updateSuccess = data => ({
-  type: UPDATE_SUCCESS,
+const setTagsSuccess = data => ({
+  type: SET_TAGS_SUCCESS,
   data,
 });
 
 export default {
-  UPDATE,
-  UPDATE_SUCCESS,
-  update,
-  updateSuccess,
+  SET_TAGS,
+  SET_TAGS_SUCCESS,
+  setTags,
+  setTagsSuccess,
 };

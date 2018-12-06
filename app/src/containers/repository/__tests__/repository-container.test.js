@@ -29,6 +29,6 @@ describe('Respository Container', () => {
 
   it('should have a dispatch getRepositories', () => {
     const wrapper = shallow(<RepositoryContainer store={store} {...props} />);
-    expect(typeof wrapper.props().update === 'function').toBeTruthy();
+    expect(typeof wrapper.props().setTags === 'function').toBeTruthy();
   });
 });

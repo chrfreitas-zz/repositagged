@@ -9,7 +9,7 @@ const create = (repository) => {
 
 const update = (repository) => {
   const url = `${BASE_URL}/repositories/`;
-  return axios.put(url, repository).then(response => response.data);
+  return axios.post(url, repository).then(response => response.data);
 };
 
 export default {

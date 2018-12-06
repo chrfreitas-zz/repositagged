@@ -92,10 +92,7 @@ const routes = [
     method: 'POST',
     path: '/repositories/',
     handler: (request, h) => {
-      const repository = {
-        ...request.payload,
-        updatedAt: Date.now(),
-      };
+      const repository = new Repository(request.payload);
 
       const { db } = request.mongo;
 
@@ -105,11 +102,12 @@ const routes = [
         $set: { ...repository },
       });
 
-      return h.response().code(200);
+      return h.response(repository).code(200);
     },
     options: {
       validate: {
         payload: {
+          _id: Joi.string(),
           id: Joi.number(),
           name: Joi.string(),
           description: Joi.any().optional(),

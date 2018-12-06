@@ -9,7 +9,7 @@ describe('Repository View', () => {
       id: 1,
     },
     username: 'damienchazelle',
-    update: () => {},
+    setTags: () => {},
   };
 
   it('should match with snapshot', () => {
@@ -18,11 +18,11 @@ describe('Repository View', () => {
     expect(result).toMatchSnapshot();
   });
 
-  it('should update the repository object', () => {
-    props.update = jest.fn();
+  it('should setTags the repository object', () => {
+    props.setTags = jest.fn();
     const wrapper = shallow(<Repository {...props} />);
 
-    wrapper.instance().edit('eml');
-    expect(props.update).toHaveBeenCalledWith({ id: 1, tags: 'eml' });
+    wrapper.instance().setTags('eml');
+    expect(props.setTags).toHaveBeenCalledWith({ id: 1, tags: 'eml' });
   });
 });

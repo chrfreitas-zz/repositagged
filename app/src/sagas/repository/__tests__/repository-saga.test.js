@@ -2,15 +2,15 @@ import { call, put } from 'redux-saga/effects';
 import { cloneableGenerator } from 'redux-saga/utils';
 import actions from '../../../actions/repository';
 import api from '../../../api/repository';
-import { updateSaga } from '..';
+import { setTagsSaga } from '..';
 
 describe('Sagas', () => {
-  describe('updateSaga', () => {
+  describe('setTagsSaga', () => {
     const action = {
       data: 'ruby',
     };
 
-    const gen = cloneableGenerator(updateSaga)(action);
+    const gen = cloneableGenerator(setTagsSaga)(action);
 
     it('should call api', () => {
       const callGenerator = call(api.update, action.data);
@@ -23,7 +23,7 @@ describe('Sagas', () => {
         tags: action.data,
       };
 
-      const putGenerator = put(actions.updateSuccess(response));
+      const putGenerator = put(actions.setTagsSuccess(response));
       expect(gen.next(response).value).toEqual(putGenerator);
     });
   });

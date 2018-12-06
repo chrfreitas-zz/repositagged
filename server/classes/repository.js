@@ -1,14 +1,14 @@
 class Repository {
   constructor({
-    _id, id, name, description, url, language, tags,
+    id, name, description, url, language, tags, tagged, createdAt,
   }) {
     this.id = id;
     this.name = name || '';
     this.description = description || '';
     this.url = url || '';
     this.language = language || '';
-    this.tagged = !!_id;
-    this.createdAt = Date.now();
+    this.tagged = tagged || false;
+    this.createdAt = createdAt || Date.now();
     this.updatedAt = Date.now();
     this.tags = tags || '';
   }

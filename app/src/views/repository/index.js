@@ -5,14 +5,14 @@ import ModalTags from '../../components/modal-tags';
 class Repository extends Component {
   static propTypes = {
     repository: PropTypes.object.isRequired,
-    update: PropTypes.func.isRequired,
+    setTags: PropTypes.func.isRequired,
     username: PropTypes.string.isRequired,
   }
 
-  edit = (tags) => {
-    const { update, repository } = this.props;
+  setTags = (tags) => {
+    const { setTags, repository } = this.props;
 
-    update({
+    setTags({
       ...repository,
       tags,
     });
@@ -25,7 +25,7 @@ class Repository extends Component {
       <ModalTags
         isOpen
         repository={repository}
-        save={this.edit}
+        save={this.setTags}
         username={username}
       />
     );
