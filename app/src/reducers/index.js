@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
         ...state,
         repositories: action.data,
       };
-    case repositoryActions.UPDATE_SUCCESS:
+    case repositoryActions.SET_TAGS_SUCCESS:
       return {
         ...state,
         repositories: state.repositories.map((respository) => {

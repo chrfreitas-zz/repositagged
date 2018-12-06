@@ -22,6 +22,7 @@ exports[`Repositories View should match view with table 1`] = `
     className="repositories__row"
   >
     <Table
+      baseUrl="/test"
       body={
         Array [
           Object {

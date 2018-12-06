@@ -9,6 +9,7 @@ describe('Repositories View', () => {
       name: 'mongodb',
     }],
     match: {
+      url: '/test',
       params: {
         username: 'xyz',
       },

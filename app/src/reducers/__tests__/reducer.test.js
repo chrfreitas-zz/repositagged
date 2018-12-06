@@ -44,7 +44,7 @@ describe('Reducer', () => {
     };
 
     const action = {
-      type: repositoryActions.UPDATE_SUCCESS,
+      type: repositoryActions.SET_TAGS_SUCCESS,
       data: {
         id: 1,
         tags: 'kotlin',
