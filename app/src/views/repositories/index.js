@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import debounce from 'lodash/debounce';
 import Progressbar from '../../components/progressbar';
 import Input from '../../components/ui/input';
 import Table from '../../components/ui/table';
@@ -22,6 +23,10 @@ class Repositories extends Component {
     repositories: [],
   }
 
+  search = debounce((value) => {
+    this.props.search(value);
+  }, 500);
+
   componentDidMount() {
     const { getRepositories, match } = this.props;
     getRepositories(match.params.username);
@@ -29,7 +34,7 @@ class Repositories extends Component {
 
   onChangeInput = (evt) => {
     const { value } = evt.target;
-    this.props.search(value);
+    this.search(value);
   }
 
   render() {
