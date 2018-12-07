@@ -19,4 +19,9 @@ describe('Respositories Container', () => {
     const wrapper = shallow(<RepositoriesContainer store={store} />);
     expect(typeof wrapper.props().getRepositories === 'function').toBeTruthy();
   });
+
+  it('should have a dispatch search', () => {
+    const wrapper = shallow(<RepositoriesContainer store={store} />);
+    expect(typeof wrapper.props().search === 'function').toBeTruthy();
+  });
 });

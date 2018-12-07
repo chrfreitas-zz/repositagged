@@ -11,7 +11,7 @@ describe('ModalTags component', () => {
       id: 1,
       name: 'mongodb',
     },
-    save: () => {},
+    save: jest.fn(),
   };
 
   it('should match with snapshot', () => {
@@ -23,7 +23,7 @@ describe('ModalTags component', () => {
     expect(result).toMatchSnapshot();
   });
 
-  it('shoudl change value of tags state', () => {
+  it('should change value of tags state', () => {
     const wrapper = shallow(<ModalTags {...props} />);
 
     const evt = {
@@ -40,5 +40,31 @@ describe('ModalTags component', () => {
     const wrapper = shallow(<ModalTags {...props} />);
 
     expect(wrapper.instance().hasRepository(props.repository)).toBeTruthy();
+  });
+
+  it('should call save when confirm', () => {
+    const wrapper = shallow(<ModalTags {...props} />);
+
+    wrapper.instance().onConfirm();
+    expect(props.save).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call save with param erlang', () => {
+    const wrapper = shallow(<ModalTags {...props} />);
+    wrapper.setState({
+      tags: 'erlang',
+    });
+
+    wrapper.instance().onConfirm();
+    expect(props.save).toHaveBeenCalledWith('erlang');
+  });
+
+  it('should call close when confirm', () => {
+    const wrapper = shallow(<ModalTags {...props} />);
+
+    const spy = jest.spyOn(wrapper.instance(), 'closeModal');
+
+    wrapper.instance().onConfirm();
+    expect(spy).toHaveBeenCalledTimes(1);
   });
 });

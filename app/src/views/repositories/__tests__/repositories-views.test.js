@@ -15,6 +15,7 @@ describe('Repositories View', () => {
       },
     },
     getRepositories: () => {},
+    search: () => {},
   };
 
   it('should match view with table', () => {

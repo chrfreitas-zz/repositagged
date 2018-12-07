@@ -1,9 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Repositories View should match view with loading 1`] = `
-<Progressbar
-  text="Getting the repositories list from Github"
-/>
+<div
+  className="repositories"
+>
+  <div
+    className="repositories__row"
+  >
+    <Input
+      className="input input--medium"
+      onChange={[Function]}
+      placeholder="search by tag"
+    />
+  </div>
+  <div
+    className="repositories__row"
+  >
+    <Table
+      baseUrl="/test"
+      body={Array []}
+      header={
+        Array [
+          "Repository",
+          "Description",
+          "Language",
+          "Tags",
+          "",
+        ]
+      }
+    />
+  </div>
+</div>
 `;
 
 exports[`Repositories View should match view with table 1`] = `
@@ -15,6 +42,7 @@ exports[`Repositories View should match view with table 1`] = `
   >
     <Input
       className="input input--medium"
+      onChange={[Function]}
       placeholder="search by tag"
     />
   </div>

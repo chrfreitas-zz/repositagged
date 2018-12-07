@@ -12,7 +12,7 @@ describe('Repository Api', () => {
     expect(mockAxios.post).toHaveBeenCalledWith(`${BASE_URL}/repositories/`, repository);
   });
 
-  it('should call create route with params', () => {
+  it('should call update route with params', () => {
     const repository = {
       name: 'jquery',
       tags: 'the best',

@@ -7,4 +7,10 @@ describe('Repositories Api', () => {
     api.getRepositories(username);
     expect(mockAxios.get).toHaveBeenCalledWith(`${BASE_URL}/repositories/${username}`);
   });
+
+  it('should get search repositories', () => {
+    const query = 'rails';
+    api.search(query);
+    expect(mockAxios.get).toHaveBeenCalledWith(`${BASE_URL}/repositories/search?query=${query}`);
+  });
 });
