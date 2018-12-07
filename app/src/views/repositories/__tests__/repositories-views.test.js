@@ -18,6 +18,7 @@ describe('Repositories View', () => {
     search: () => {},
   };
 
+
   it('should match view with table', () => {
     const renderer = new ShallowRenderer();
     const result = renderer.render(<Repositories {...props} />);
@@ -25,7 +26,7 @@ describe('Repositories View', () => {
   });
 
   it('should match view with loading', () => {
-    props.repositories = [];
+    props.repositories = null;
     const renderer = new ShallowRenderer();
     const result = renderer.render(<Repositories {...props} />);
     expect(result).toMatchSnapshot();
@@ -36,6 +37,22 @@ describe('Repositories View', () => {
       const spy = jest.spyOn(props, 'getRepositories');
       shallow(<Repositories {...props} />);
       expect(spy).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('when it makes a search', () => {
+    it('should call search with param elm', () => {
+      const evt = {
+        target: {
+          value: 'elm',
+        },
+      };
+
+      const wrapper = shallow(<Repositories {...props} />);
+      const spy = jest.spyOn(wrapper.instance(), 'search');
+      wrapper.instance().onChangeInput(evt);
+
+      expect(spy).toHaveBeenCalledWith(evt.target.value);
     });
   });
 });
