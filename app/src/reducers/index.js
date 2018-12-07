@@ -2,16 +2,18 @@ import repositoriesActions from '../actions/repositories';
 import repositoryActions from '../actions/repository';
 
 const initialState = {
-  repositories: [],
+  repositories: null,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case repositoriesActions.SEARCH_SUCCESS:
     case repositoriesActions.FETCH_REPOSITORIES_LIST_SUCCESS:
       return {
         ...state,
         repositories: action.data,
       };
+
     case repositoryActions.SET_TAGS_SUCCESS:
       return {
         ...state,

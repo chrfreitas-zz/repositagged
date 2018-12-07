@@ -7,6 +7,12 @@ export function* getRepositoriesSaga(action) {
   yield put(actions.fetchRepositoriesListSuccess(repositories));
 }
 
+export function* searchSaga(action) {
+  const repositories = yield call(api.search, action.data);
+  yield put(actions.searchSuccess(repositories));
+}
+
 export default [
   takeEvery(actions.FETCH_REPOSITORIES_LIST, getRepositoriesSaga),
+  takeEvery(actions.SEARCH, searchSaga),
 ];

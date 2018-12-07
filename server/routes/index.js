@@ -36,8 +36,8 @@ const routes = [
       const data = await db.collection('repositories').find({
         tags: query,
       }).toArray();
-
-      return h.response({ data }).code(200);
+      
+      return h.response(data).code(200);
     },
   },
   {

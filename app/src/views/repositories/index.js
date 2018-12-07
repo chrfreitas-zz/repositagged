@@ -12,6 +12,7 @@ class Repositories extends Component {
     match: PropTypes.object,
     repositories: PropTypes.array,
     getRepositories: PropTypes.func.isRequired,
+    search: PropTypes.func.isRequired,
   }
 
   static defaultProps = {
@@ -26,17 +27,26 @@ class Repositories extends Component {
     getRepositories(match.params.username);
   }
 
+  onChangeInput = (evt) => {
+    const { value } = evt.target;
+    this.props.search(value);
+  }
+
   render() {
     const { repositories, match } = this.props;
 
-    if (!repositories.length) {
+    if (repositories === null) {
       return <Progressbar text="Getting the repositories list from Github" />;
     }
 
     return (
       <div className="repositories">
         <div className="repositories__row">
-          <Input placeholder="search by tag" className="input input--medium" />
+          <Input
+            className="input input--medium"
+            placeholder="search by tag"
+            onChange={this.onChangeInput}
+          />
         </div>
         <div className="repositories__row">
           <Table header={header} body={repositories} baseUrl={match.url} />

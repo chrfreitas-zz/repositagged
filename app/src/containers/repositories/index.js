@@ -4,6 +4,7 @@ import Repositories from '../../views/repositories';
 
 const mapDispatchToProps = dispatch => ({
   getRepositories: username => dispatch(actions.fetchRepositoriesList(username)),
+  search: query => dispatch(actions.search(query)),
 });
 
 const mapStateToProps = store => ({
