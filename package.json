@@ -1,14 +1,14 @@
 {
-  "main": "server/index.js",
   "name": "repositagged",
   "version": "1.0.0",
   "scripts": {
-    "server:start": "nodemon -w ./server",
-    "app:start": "node app/scripts/start.js",
-    "app:test": "node app/scripts/test.js",
-    "app:build": "node app/scripts/build.js",
-    "app:eslint": "eslint .",
-    "app:stylelint": "stylelint '**/*.scss'"
+    "server:start": "nodemon -w ./api",
+    "start": "node app/scripts/start.js",
+    "test": "node app/scripts/test.js",
+    "test:cy": "cypress open",
+    "build": "node app/scripts/build.js",
+    "eslint": "eslint .",
+    "stylelint": "stylelint '**/*.scss'"
   },
   "husky": {
     "hooks": {

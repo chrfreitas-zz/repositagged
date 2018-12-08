@@ -1,6 +1,6 @@
 const Joi = require('joi');
 const unionBy = require('lodash/unionBy');
-const api = require('../api');
+const github = require('../github');
 const Repository = require('../classes/repository');
 
 const routes = [
@@ -12,7 +12,7 @@ const routes = [
       const { db } = request.mongo;
 
       const dbRepositories = await db.collection('repositories').find().toArray();
-      const apiRepositories = await api.fetchRespositories(username);
+      const apiRepositories = await github.fetchRespositories(username);
 
       const data = unionBy(dbRepositories, apiRepositories, 'id');
 
