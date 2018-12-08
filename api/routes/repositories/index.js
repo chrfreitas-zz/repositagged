@@ -1,5 +1,7 @@
 const Joi = require('joi');
 const unionBy = require('lodash/unionBy');
+const differenceWith = require('lodash/differenceWith');
+const isEqual = require('lodash/isEqual');
 const github = require('../../github');
 
 const routes = [
@@ -10,11 +12,21 @@ const routes = [
       const { username } = request.params;
       const { db } = request.mongo;
 
-      const dbRepositories = await db.collection('repositories').find().toArray();
-      const apiRepositories = await github.fetchRespositories(username);
+      const githubRepositories = await github.fetchRespositories(username);
+      const dbRepositories = await db.collection('repositories').findOne({
+        username,
+      }) || {};
 
-      const data = unionBy(dbRepositories, apiRepositories, 'id');
+      db.collection('repositories').deleteOne({ username });
 
+      const repositories = unionBy(dbRepositories.repositories, githubRepositories, 'id');
+
+      const data = {
+        username,
+        repositories,
+      };
+
+      db.collection('repositories').insertOne(data);
       return h.response(data).code(200);
     },
     options: {

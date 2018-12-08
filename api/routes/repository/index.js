@@ -3,26 +3,6 @@ const Repository = require('../../classes/repository');
 
 const routes = [
   {
-    method: 'GET',
-    path: '/repository/{id}',
-    handler: async (request, h) => {
-      const { db } = request.mongo;
-
-      const [data] = await db.collection('repositories').find({
-        id: request.params.id,
-      }).toArray();
-
-      return h.response(data).code(200);
-    },
-    options: {
-      validate: {
-        params: {
-          id: Joi.string(),
-        },
-      },
-    },
-  },
-  {
     method: 'PUT',
     path: '/repositories/',
     handler: async (request, h) => {
