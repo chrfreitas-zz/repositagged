@@ -1,7 +1,7 @@
 const hapi = require('hapi');
 
-const mongodb = require('./registers/mongodb');
-const log = require('./registers/log');
+const mongodb = require('./configs/mongodb');
+const log = require('./configs/log');
 const routes = require('./routes');
 
 const start = async () => {
