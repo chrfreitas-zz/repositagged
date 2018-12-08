@@ -2,9 +2,9 @@ import { put, call, takeEvery } from 'redux-saga/effects';
 import actions from '../../actions/repositories';
 import api from '../../api/repositories';
 
-export function* getRepositoriesSaga(action) {
-  const repositories = yield call(api.getRepositories, action.data);
-  yield put(actions.fetchRepositoriesListSuccess(repositories));
+export function* syncSaga(action) {
+  const repositories = yield call(api.sync, action.data);
+  yield put(actions.syncSuccess(repositories));
 }
 
 export function* searchSaga(action) {
@@ -13,6 +13,6 @@ export function* searchSaga(action) {
 }
 
 export default [
-  takeEvery(actions.FETCH_REPOSITORIES_LIST, getRepositoriesSaga),
+  takeEvery(actions.SYNC, syncSaga),
   takeEvery(actions.SEARCH, searchSaga),
 ];

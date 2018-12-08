@@ -12,7 +12,7 @@ class Repositories extends Component {
   static propTypes = {
     match: PropTypes.object,
     repositories: PropTypes.array,
-    getRepositories: PropTypes.func.isRequired,
+    sync: PropTypes.func.isRequired,
     search: PropTypes.func.isRequired,
   }
 
@@ -28,8 +28,8 @@ class Repositories extends Component {
   }, 500);
 
   componentDidMount() {
-    const { getRepositories, match } = this.props;
-    getRepositories(match.params.username);
+    const { sync, match } = this.props;
+    sync(match.params.username);
   }
 
   onChangeInput = (evt) => {

@@ -8,7 +8,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case repositoriesActions.SEARCH_SUCCESS:
-    case repositoriesActions.FETCH_REPOSITORIES_LIST_SUCCESS:
+    case repositoriesActions.SYNC_SUCCESS:
       return {
         ...state,
         repositories: action.data,

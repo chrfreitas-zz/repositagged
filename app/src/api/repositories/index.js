@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export const BASE_URL = 'http://localhost:9000';
 
-const getRepositories = (username) => {
-  const url = `${BASE_URL}/repositories/${username}`;
+const sync = (username) => {
+  const url = `${BASE_URL}/repositories/sync/${username}`;
   return axios.get(url).then(response => response.data);
 };
 
@@ -13,6 +13,6 @@ const search = (query) => {
 };
 
 export default {
-  getRepositories,
+  sync,
   search,
 };

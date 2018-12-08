@@ -1,15 +1,15 @@
 const SEARCH = 'SEARCH';
 const SEARCH_SUCCESS = 'SEARCH_SUCCESS';
-const FETCH_REPOSITORIES_LIST = 'FETCH_REPOSITORIES_LIST';
-const FETCH_REPOSITORIES_LIST_SUCCESS = 'FETCH_REPOSITORIES_LIST_SUCCESS';
+const SYNC = 'SYNC';
+const SYNC_SUCCESS = 'SYNC_SUCCESS';
 
-const fetchRepositoriesList = data => ({
-  type: FETCH_REPOSITORIES_LIST,
+const sync = data => ({
+  type: SYNC,
   data,
 });
 
-const fetchRepositoriesListSuccess = data => ({
-  type: FETCH_REPOSITORIES_LIST_SUCCESS,
+const syncSuccess = data => ({
+  type: SYNC_SUCCESS,
   data,
 });
 
@@ -24,10 +24,10 @@ const searchSuccess = data => ({
 });
 
 export default {
-  FETCH_REPOSITORIES_LIST,
-  FETCH_REPOSITORIES_LIST_SUCCESS,
-  fetchRepositoriesList,
-  fetchRepositoriesListSuccess,
+  SYNC,
+  SYNC_SUCCESS,
+  sync,
+  syncSuccess,
   SEARCH,
   SEARCH_SUCCESS,
   search,

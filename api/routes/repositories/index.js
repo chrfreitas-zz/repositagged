@@ -5,7 +5,7 @@ const github = require('../../github');
 const routes = [
   {
     method: 'GET',
-    path: '/repositories/{username}',
+    path: '/repositories/sync/{username}',
     handler: async (request, h) => {
       const { username } = request.params;
       const { db } = request.mongo;
