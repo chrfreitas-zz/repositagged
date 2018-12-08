@@ -1,7 +1,5 @@
 const Joi = require('joi');
 const unionBy = require('lodash/unionBy');
-const differenceWith = require('lodash/differenceWith');
-const isEqual = require('lodash/isEqual');
 const github = require('../../github');
 
 const routes = [
@@ -27,7 +25,7 @@ const routes = [
       };
 
       db.collection('repositories').insertOne(data);
-      return h.response(data).code(200);
+      return h.response(data).state('session', { username }).code(200);
     },
     options: {
       validate: {
@@ -47,7 +45,7 @@ const routes = [
       const data = await db.collection('repositories').find({
         tags: query,
       }).toArray();
-      
+
       return h.response(data).code(200);
     },
   },

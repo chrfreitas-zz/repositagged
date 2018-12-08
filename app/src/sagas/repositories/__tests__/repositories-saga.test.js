@@ -2,18 +2,18 @@ import { call, put } from 'redux-saga/effects';
 import { cloneableGenerator } from 'redux-saga/utils';
 import actions from '../../../actions/repositories';
 import api from '../../../api/repositories';
-import { getRepositoriesSaga, searchSaga } from '..';
+import { syncSaga, searchSaga } from '..';
 
 describe('Sagas', () => {
-  describe('getRepositoriesSaga', () => {
+  describe('syncSaga', () => {
     const action = {
       data: 'username',
     };
 
-    const gen = cloneableGenerator(getRepositoriesSaga)(action);
+    const gen = cloneableGenerator(syncSaga)(action);
 
     it('should call api', () => {
-      const callGenerator = call(api.getRepositories, 'username');
+      const callGenerator = call(api.sync, 'username');
       expect(gen.next().value).toEqual(callGenerator);
     });
 
@@ -22,7 +22,7 @@ describe('Sagas', () => {
         name: 'mongodb',
       }];
 
-      const putGenerator = put(actions.fetchRepositoriesListSuccess(response));
+      const putGenerator = put(actions.syncSuccess(response));
       expect(gen.next(response).value).toEqual(putGenerator);
     });
   });

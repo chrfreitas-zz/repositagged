@@ -24,15 +24,17 @@ describe('Reducer', () => {
     };
 
     const action = {
-      type: repositoriesAction.FETCH_REPOSITORIES_LIST_SUCCESS,
-      data: [{
-        name: 'mongodb',
-        description: 'mongodb repository',
-      }],
+      type: repositoriesAction.SYNC_SUCCESS,
+      data: {
+        repositories: [{
+          name: 'mongodb',
+          description: 'mongodb repository',
+        }],
+      },
     };
 
     const result = reducer(state, action);
-    expect(result.repositories).toBe(action.data);
+    expect(result.repositories).toBe(action.data.repositories);
   });
 
   it('should update a repository', () => {

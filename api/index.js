@@ -11,8 +11,15 @@ const start = async () => {
     routes: {
       cors: {
         origin: ['http://localhost*'],
+        credentials: true,
       },
     },
+  });
+
+  server.state('session', {
+    ttl: null,
+    isSecure: false,
+    encoding: 'base64json',
   });
 
   await server.register(mongodb);

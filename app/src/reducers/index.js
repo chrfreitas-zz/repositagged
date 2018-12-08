@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
     case repositoriesActions.SYNC_SUCCESS:
       return {
         ...state,
-        repositories: action.data,
+        repositories: action.data.repositories,
       };
 
     case repositoryActions.SET_TAGS_SUCCESS:

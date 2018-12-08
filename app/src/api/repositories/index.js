@@ -4,7 +4,9 @@ export const BASE_URL = 'http://localhost:9000';
 
 const sync = (username) => {
   const url = `${BASE_URL}/repositories/sync/${username}`;
-  return axios.get(url).then(response => response.data);
+  return axios.get(url, {
+    withCredentials: true,
+  }).then(response => response.data);
 };
 
 const search = (query) => {
