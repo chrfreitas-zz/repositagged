@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "scripts": {
     "server:start": "nodemon -w ./api",
-    "start": "node app/scripts/start.js",
-    "test": "node app/scripts/test.js",
-    "test:cy": "cypress open",
-    "build": "node app/scripts/build.js",
-    "eslint": "eslint .",
-    "stylelint": "stylelint '**/*.scss'"
+    "app:start": "node app/scripts/start.js",
+    "app:test": "node app/scripts/test.js",
+    "app:test:cy": "cypress open",
+    "app:build": "node app/scripts/build.js",
+    "app:eslint": "eslint .",
+    "app:stylelint": "stylelint '**/*.scss'"
   },
   "husky": {
     "hooks": {
