@@ -3,45 +3,21 @@ const Repository = require('../../classes/repository');
 
 const routes = [
   {
-    method: 'PUT',
-    path: '/repositories/',
-    handler: async (request, h) => {
-      const repository = new Repository(request.payload);
-
-      const { db } = request.mongo;
-      const result = await db.collection('repositories').insertOne(repository);
-
-      const [response] = result.ops;
-      return h.response(response).code(200);
-    },
-    options: {
-      validate: {
-        payload: {
-          id: Joi.number(),
-          name: Joi.string(),
-          description: Joi.any().optional(),
-          url: Joi.string(),
-          language: Joi.any().optional(),
-          tagged: Joi.boolean(),
-          createdAt: Joi.number(),
-          updatedAt: Joi.number(),
-          tags: Joi.string(),
-        },
-      },
-    },
-  },
-  {
     method: 'POST',
     path: '/repositories/',
     handler: (request, h) => {
+      const username = 'chrfreitas';
       const repository = new Repository(request.payload);
 
       const { db } = request.mongo;
 
       db.collection('repositories').updateOne({
-        id: repository.id,
+        username,
+        'repositories.id': repository.id,
       }, {
-        $set: { ...repository },
+        $set: {
+          'repositories.$': repository,
+        },
       });
 
       return h.response(repository).code(200);

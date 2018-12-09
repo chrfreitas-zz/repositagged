@@ -39,12 +39,29 @@ const routes = [
     method: 'GET',
     path: '/repositories/search',
     handler: async (request, h) => {
+      const username = 'chrfreitas';
       const { query } = request.query;
       const { db } = request.mongo;
 
-      const data = await db.collection('repositories').find({
-        tags: query,
-      }).toArray();
+      if (query === '') {
+        const [data] = await db.collection('repositories').find({
+          username,
+        }).toArray();
+
+        return h.response(data).code(200);
+      }
+
+      const result = await db.collection('repositories').aggregate([{
+        $unwind: '$repositories',
+      }, {
+        $match: {
+          'repositories.tags': query,
+        },
+      }]).toArray();
+
+      const data = {
+        repositories: result.map(item => item.repositories),
+      };
 
       return h.response(data).code(200);
     },

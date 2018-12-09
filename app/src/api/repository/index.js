@@ -1,18 +1,10 @@
-import axios from 'axios';
-
-export const BASE_URL = 'http://localhost:9000';
-
-const create = (repository) => {
-  const url = `${BASE_URL}/repositories/`;
-  return axios.put(url, repository).then(response => response.data);
-};
+import axios from '..';
 
 const update = (repository) => {
-  const url = `${BASE_URL}/repositories/`;
+  const url = 'repositories/';
   return axios.post(url, repository).then(response => response.data);
 };
 
 export default {
-  create,
   update,
 };

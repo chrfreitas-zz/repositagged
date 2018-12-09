@@ -3,14 +3,7 @@ import actions from '../../actions/repository';
 import api from '../../api/repository';
 
 export function* setTagsSaga(action) {
-  let repository = {};
-
-  if (action.data.tagged) {
-    repository = yield call(api.update, action.data);
-  } else {
-    repository = yield call(api.create, { ...action.data, tagged: true });
-  }
-
+  const repository = yield call(api.update, action.data);
   yield put(actions.setTagsSuccess(repository));
 }
 
