@@ -17,14 +17,14 @@ You will need the following things properly installed on your computer.
 
 ## Getting Started
 
-Starts mongodb running the next command
+Start mongodb running the next command
 > mongod
 
 Start the server application
 > yarn server:start
 
 Start the client application 
-> app:start
+> yarn app:start
 
 Now application is running in
 > http://localhost:3000/home
