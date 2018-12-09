@@ -4,10 +4,10 @@
 
 You will need the following things properly installed on your computer.
 
-* [Git](http://git-scm.com/)
-* [Yarn](https://yarnpkg.com/lang/en/docs/install/)
 * [Node.js](http://nodejs.org/)
-* [Google Chrome](https://google.com/chrome/)
+* [Yarn](https://yarnpkg.com/lang/en/docs/install/)
+* [Git](https://docs.mongodb.com/manual/installation/)
+* [MongoDB](https://docs.mongodb.com/manual/installation/)
 
 ## Installing
 
@@ -15,10 +15,27 @@ You will need the following things properly installed on your computer.
 * `cd <repository-url>`
 * `yarn install`
 
+## Getting Started
+
+Starts mongodb running the next command
+> mongod
+
+Start the server application
+> yarn server:start
+
+Start the client application 
+> app:start
+
+Now application is running in
+> http://localhost:3000/home
 
 ## Scripts
 
 In the project directory, you can run:
+
+### `yarn server:start`
+
+Runs server app in the development mode.<br>
 
 ### `yarn app:start`
 
