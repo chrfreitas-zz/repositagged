@@ -17,8 +17,9 @@ const start = async () => {
   });
 
   server.state('session', {
-    ttl: null,
+    ttl: 24 * 60 * 60 * 1000, // 1 day
     isSecure: false,
+    path: '/',
     encoding: 'base64json',
   });
 

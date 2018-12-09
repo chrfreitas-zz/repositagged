@@ -39,7 +39,7 @@ const routes = [
     method: 'GET',
     path: '/repositories/search',
     handler: async (request, h) => {
-      const username = 'chrfreitas';
+      const { username } = request.state.session;
       const { query } = request.query;
       const { db } = request.mongo;
 

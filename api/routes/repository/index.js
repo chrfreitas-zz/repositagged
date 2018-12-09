@@ -6,7 +6,7 @@ const routes = [
     method: 'POST',
     path: '/repositories/',
     handler: (request, h) => {
-      const username = 'chrfreitas';
+      const { username } = request.state.session;
       const repository = new Repository(request.payload);
 
       const { db } = request.mongo;
