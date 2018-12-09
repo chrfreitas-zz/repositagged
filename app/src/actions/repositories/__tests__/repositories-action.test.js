@@ -1,20 +1,20 @@
 import actions from '..';
 
 describe('Repositories Actions', () => {
-  it('should call return data and FETCH_REPOSITORIES_LIST', () => {
-    const result = actions.fetchRepositoriesList('username');
+  it('should call return data and SYNC', () => {
+    const result = actions.sync('username');
     const actionExpected = {
-      type: actions.FETCH_REPOSITORIES_LIST,
+      type: actions.SYNC,
       data: 'username',
     };
 
     expect(result).toEqual(actionExpected);
   });
 
-  it('should call return data and FETCH_REPOSITORIES_LIST_SUCCESS', () => {
-    const result = actions.fetchRepositoriesListSuccess([]);
+  it('should call return data and SYNC_SUCCESS', () => {
+    const result = actions.syncSuccess([]);
     const actionExpected = {
-      type: actions.FETCH_REPOSITORIES_LIST_SUCCESS,
+      type: actions.SYNC_SUCCESS,
       data: [],
     };
 

@@ -14,7 +14,7 @@ describe('Repositories View', () => {
         username: 'xyz',
       },
     },
-    getRepositories: () => {},
+    sync: () => {},
     search: () => {},
   };
 
@@ -33,8 +33,8 @@ describe('Repositories View', () => {
   });
 
   describe('when it did mount', () => {
-    it('should call getRepositories once', () => {
-      const spy = jest.spyOn(props, 'getRepositories');
+    it('should call sync once', () => {
+      const spy = jest.spyOn(props, 'sync');
       shallow(<Repositories {...props} />);
       expect(spy).toHaveBeenCalledTimes(1);
     });

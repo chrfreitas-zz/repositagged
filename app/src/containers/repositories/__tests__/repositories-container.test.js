@@ -16,17 +16,17 @@ describe('Respositories Container', () => {
     expect(wrapper.props()).toHaveProperty('repositories', []);
   });
 
-  it('should have a functiona named getRepositories', () => {
+  it('should have a functiona named sync', () => {
     const wrapper = shallow(<RepositoriesContainer store={store} />);
-    expect(typeof wrapper.props().getRepositories === 'function').toBeTruthy();
+    expect(typeof wrapper.props().sync === 'function').toBeTruthy();
   });
 
-  it('should have dispatched getRepositories', () => {
+  it('should have dispatched sync', () => {
     const username = 'scorsese';
-    const spy = jest.spyOn(actions, 'fetchRepositoriesList');
+    const spy = jest.spyOn(actions, 'sync');
 
     const wrapper = shallow(<RepositoriesContainer store={store} />);
-    wrapper.props().getRepositories(username);
+    wrapper.props().sync(username);
 
     expect(spy).toHaveBeenCalledWith(username);
   });
