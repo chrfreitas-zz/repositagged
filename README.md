@@ -46,8 +46,3 @@ Open [http://localhost:3000/home](http://localhost:3000/home) to view it in the 
 ### `yarn app:test`
 
 Launches the test runner in the interactive watch mode.<br>
-
-
-### `yarn app:test:cy`
-
-Starts the ui tests with cypress. It'll show a browser running in realtime mode.<br>
